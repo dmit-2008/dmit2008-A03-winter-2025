@@ -1,0 +1,18 @@
+{
+  "name": "02-review-astronauts-example-complete",
+  "version": "0.0.1",
+  "description": "reviewing some npm",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "author": "Dane Maris",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  },
+  "devDependencies": {
+    "parcel": "^2.13.3"
+  }
+}
