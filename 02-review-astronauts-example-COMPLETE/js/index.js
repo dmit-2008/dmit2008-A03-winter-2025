@@ -13,5 +13,6 @@ be here https://lldev.thespacedevs.com
 document.addEventListener("DOMContentLoaded", async () => {
   let data = await getAstronautList()
   // get the name of tommy pesquet
+  console.log(data)
   console.log(data.results[0].name)
 })
