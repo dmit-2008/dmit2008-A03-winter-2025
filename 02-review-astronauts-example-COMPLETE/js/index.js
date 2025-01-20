@@ -16,4 +16,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   // get the name of tommy pesquet
   console.log(data)
   console.log(data.results[0].name)
+  // we can see in the above data that resulsts is an array
+  // so what are we going to do here.
+  let astronauts = data.results
+  // let's select the element
+  let astronautListItem = document.querySelector(".astronaut-list")
+  astronauts.map((astronaut)=> { // you could use foreach as well.
+    // we're going to call our function here
+    renderAstronautListItem(astronaut, astronautListItem)
+  })
 })
