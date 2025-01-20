@@ -11,6 +11,15 @@ be here https://lldev.thespacedevs.com
 
 */
 
+// we are going to implement search
+// we're going to take a look today at the docs
+// of the api endpoint so that we can search.
+
+// what we're going to need is
+// form event listener that will take the user input
+// and send it to the api endpoint.
+
+
 document.addEventListener("DOMContentLoaded", async () => {
   let data = await getAstronautList()
   // get the name of tommy pesquet
