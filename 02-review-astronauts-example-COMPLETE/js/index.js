@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { getAstronautList } from './api/astronaut'
+import { renderAstronautListItem } from './dom/astronaut'
 
 /*
 Take a look at the space devs api
