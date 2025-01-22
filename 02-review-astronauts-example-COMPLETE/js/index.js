@@ -21,7 +21,18 @@ be here https://lldev.thespacedevs.com
 
 // select the form, add event listener and get search value from
 // the input
+let searchForm = document.querySelector("#search-astronauts")
 
+// add the event listener
+searchForm.addEventListener("submit", (event)=> {
+  // if the line below is annoying go take a look at the dialog in html.
+  event.preventDefault()
+
+  // let's get the input
+  let searchInput = searchForm.elements['search']
+  // let's make sure we have the correct input
+  console.log(searchInput.value)
+})
 
 
 document.addEventListener("DOMContentLoaded", async () => {
