@@ -27,12 +27,19 @@ let searchForm = document.querySelector("#search-astronauts")
 searchForm.addEventListener("submit", (event)=> {
   // if the line below is annoying go take a look at the dialog in html.
   event.preventDefault()
-
+  // dan question: is searchForm the same the event.target
+  // console.log("dan question: is searchForm the same the event.target")
+  // console.log(searchForm === event.target)
   // let's get the input
   let searchInput = searchForm.elements['search']
   // let's make sure we have the correct input
   console.log(searchInput.value)
 })
+
+// create function that will filter the search
+// param search input in this function.
+// add this search param to the url
+// we're also going to clearn the innerhtml of the container element
 
 
 document.addEventListener("DOMContentLoaded", async () => {
