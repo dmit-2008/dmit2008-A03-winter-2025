@@ -14,9 +14,13 @@ const getAstronautList = async ({search}) => {
     paramsObj.search = search
   }
   console.log(paramsObj)
+  // we're going to convert this object into a string of url params
+  let params = new URLSearchParams(paramsObj)
+  console.log(params.toString())
 
   // construct the url.
-  const URL = `${BASE_URL}/astronauts/?mode=list`
+  // we're going to use our new parameters object
+  const URL = `${BASE_URL}/astronauts/?${params.toString()}`
   // making the fetch request
   const response = await fetch(URL, {
     method: "GET" // this is extra data associated with fetch
