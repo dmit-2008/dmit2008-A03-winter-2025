@@ -19,6 +19,18 @@ be here https://lldev.thespacedevs.com
 // form event listener that will take the user input
 // and send it to the api endpoint.
 
+
+// create function that will filter the search
+// param search input in this function.
+// add this search param to the url
+// we're also going to clearn the innerhtml of the container element
+
+// let's use our knowledge of object destructuring in the parameter
+const getAndRenderAstronautList = ({search}) => {
+  console.log(search)
+
+}
+
 // select the form, add event listener and get search value from
 // the input
 let searchForm = document.querySelector("#search-astronauts")
@@ -35,12 +47,6 @@ searchForm.addEventListener("submit", (event)=> {
   // let's make sure we have the correct input
   console.log(searchInput.value)
 })
-
-// create function that will filter the search
-// param search input in this function.
-// add this search param to the url
-// we're also going to clearn the innerhtml of the container element
-
 
 document.addEventListener("DOMContentLoaded", async () => {
   let data = await getAstronautList()
