@@ -19,6 +19,10 @@ be here https://lldev.thespacedevs.com
 // form event listener that will take the user input
 // and send it to the api endpoint.
 
+// select the form, add event listener and get search value from
+// the input
+
+
 
 document.addEventListener("DOMContentLoaded", async () => {
   let data = await getAstronautList()
