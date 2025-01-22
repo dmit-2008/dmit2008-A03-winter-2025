@@ -7,6 +7,14 @@ const BASE_URL = "https://lldev.thespacedevs.com/2.3.0"
 // export that function (named)
 // import it index.js
 const getAstronautList = async ({search}) => {
+  let paramsObj = {
+    mode: "list"
+  }
+  if (search) {
+    paramsObj.search = search
+  }
+  console.log(paramsObj)
+
   // construct the url.
   const URL = `${BASE_URL}/astronauts/?mode=list`
   // making the fetch request
