@@ -26,11 +26,13 @@ be here https://lldev.thespacedevs.com
 // we're also going to clearn the innerhtml of the container element
 
 // let's use our knowledge of object destructuring in the parameter
-const getAndRenderAstronautList = async ({search}) => {
+const getAndRenderAstronautList = async ({search}={}) => {
   // i'm going to make this parameter optional.
   console.log(search)
 
-  let data = await getAstronautList()
+  let data = await getAstronautList({
+    search: search
+  })
   // get the name of tommy pesquet
   console.log(data)
   console.log(data.results[0].name)
@@ -39,6 +41,9 @@ const getAndRenderAstronautList = async ({search}) => {
   let astronauts = data.results
   // let's select the element
   let astronautListItem = document.querySelector(".astronaut-list")
+  // we're clear the input every time we search
+  astronautListItem.innerHTML = ""
+
   astronauts.map((astronaut)=> { // you could use foreach as well.
     // we're going to call our function here
     renderAstronautListItem(astronaut, astronautListItem)

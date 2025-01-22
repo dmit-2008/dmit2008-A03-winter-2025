@@ -6,7 +6,7 @@ const BASE_URL = "https://lldev.thespacedevs.com/2.3.0"
 // return the data fetched from the url we tested
 // export that function (named)
 // import it index.js
-const getAstronautList = async () => {
+const getAstronautList = async ({search}) => {
   // construct the url.
   const URL = `${BASE_URL}/astronauts/?mode=list`
   // making the fetch request
