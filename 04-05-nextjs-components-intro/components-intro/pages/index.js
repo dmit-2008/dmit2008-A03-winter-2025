@@ -1,5 +1,7 @@
-import Image from "next/image";
+// we want 3rd party imports before our own.
 import { Geist, Geist_Mono } from "next/font/google";
+// import our title component
+import Title from '@/components/Title'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
