@@ -27,6 +27,10 @@ export default function Home() {
           how to add this concept in blue.
           props and children and style and className
           */}
+          <ConceptItem
+            idea={"props, children, style and className their differences."}
+            color={"blue"}
+          />
         </ConceptList>
       </main>
     </div>
