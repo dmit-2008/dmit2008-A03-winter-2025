@@ -5,7 +5,7 @@
 export default function ConceptItem({idea, color}) {
   // let's use the style object to change
   // the color, let's pass this as a prop.
-  if (!color) {
+  if (!color) { // if it doesn't exist let's make it yellow.
     color = "yellow"
   }
   // the style prop modifies css

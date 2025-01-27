@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 // import our title component
 import Title from '@/components/Title'
 import ConceptList from "@/components/ConceptList";
-
+import ConceptItem from "@/components/ConceptItem";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -22,7 +22,11 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Title text={"Our first component"} />
         <ConceptList>
-          <li> Object destructuring </li>
+          <ConceptItem idea={"Object destructuring"} />
+          {/*
+          how to add this concept in blue.
+          props and children and style and className
+          */}
         </ConceptList>
       </main>
     </div>
