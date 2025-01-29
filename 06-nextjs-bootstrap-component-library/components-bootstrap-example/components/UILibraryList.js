@@ -23,8 +23,21 @@ const UI_LIBRARY_LIST = [
 	{
 		name: "Semantic UI",
 		url: "https://react.semantic-ui.com/"
-	}
+	},
+  {
+    name: "React 95",
+    url: "https://storybook.react95.io/?path=/story/docs-welcome-to-react95--page"
+  },
+  {
+    name: "Shadcn",
+    url: "https://ui.shadcn.com/"
+  },
+  {
+    name: "Fluent UI (microsoft way)",
+    url: "https://react.fluentui.dev/?path=/docs/components-accordion--docs"
+  }
 ]
+
 export default function UILibraryList() {
   // we're going to use map to loop through
   return <ListGroup>
