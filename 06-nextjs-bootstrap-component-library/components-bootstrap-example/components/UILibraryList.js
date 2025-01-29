@@ -4,6 +4,9 @@
 // as links in the components.
 // import and use it in the index.js
 
+
+import ListGroup from 'react-bootstrap/ListGroup';
+
 const UI_LIBRARY_LIST = [
 	{
 		name: "MUI",
@@ -22,3 +25,15 @@ const UI_LIBRARY_LIST = [
 		url: "https://react.semantic-ui.com/"
 	}
 ]
+export default function UILibraryList() {
+  // we're going to use map to loop through
+  return <ListGroup>
+    {UI_LIBRARY_LIST.map((uiLibraryItem, index) => {
+      // key below here is use in react internals.
+      // react uses it to optimize list rerendering.
+      return <ListGroup.Item key={index}>
+        {uiLibraryItem.name}
+      </ListGroup.Item>
+    })}
+  </ListGroup>
+}
