@@ -2,6 +2,7 @@
 // create a component with the same name as the file.
 // use react bootstrap list group to render this list
 // as links in the components.
+// import and use it in the index.js
 
 const UI_LIBRARY_LIST = [
 	{
