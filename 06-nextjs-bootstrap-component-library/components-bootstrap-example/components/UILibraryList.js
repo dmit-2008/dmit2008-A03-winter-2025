@@ -31,8 +31,15 @@ export default function UILibraryList() {
     {UI_LIBRARY_LIST.map((uiLibraryItem, index) => {
       // key below here is use in react internals.
       // react uses it to optimize list rerendering.
+      // use the url as the href of the link
       return <ListGroup.Item key={index}>
-        {uiLibraryItem.name}
+        <a
+          href={uiLibraryItem.url}
+          target="_blank"
+        >
+          {uiLibraryItem.name}
+        </a>
+
       </ListGroup.Item>
     })}
   </ListGroup>
