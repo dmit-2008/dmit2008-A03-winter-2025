@@ -2,5 +2,19 @@
 // name as the file
 // give it a single prop called title
 
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+
 // I want to use a very appbar from mui.
 // if there are styling issues, why?
+export default function Navbar({title}) {
+  // use the appbar documentation to create
+  // the appbars.
+
+  return <AppBar>
+    <Toolbar>
+
+    </Toolbar>
+  </AppBar>
+}
