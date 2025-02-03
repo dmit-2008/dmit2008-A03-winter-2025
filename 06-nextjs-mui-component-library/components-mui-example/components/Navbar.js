@@ -14,7 +14,13 @@ export default function Navbar({title}) {
 
   return <AppBar>
     <Toolbar>
-
+      {/* our typography will use our prop */}
+      <Typography
+        variant="h6"
+        component="div"
+      >
+        {title}
+      </Typography>
     </Toolbar>
   </AppBar>
 }
