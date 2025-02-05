@@ -3,12 +3,12 @@
 // give it a single prop called title
 
 import AppBar from '@mui/material/AppBar';
+// I want you to create a iconbutton that uses the blender icon
+import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-// I want you to create a iconbutton that uses the blender icon
 // to the left of the text in the toolbar, give it a bit of padding.
-
 // I want to use a very appbar from mui.
 // if there are styling issues, why?
 export default function Navbar({title}) {
@@ -17,6 +17,16 @@ export default function Navbar({title}) {
 
   return <AppBar>
     <Toolbar>
+      <IconButton
+        size="large"
+        edge="start"
+        color="inherit"
+        aria-label="menu"
+        sx={{ mr: 2 }}
+      >
+        {/* a nested icon */}
+      </IconButton>
+
       {/* our typography will use our prop */}
       <Typography
         variant="h6"
