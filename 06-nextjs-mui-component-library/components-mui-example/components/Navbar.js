@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
+import BlenderIcon from '@mui/icons-material/Blender';
 // to the left of the text in the toolbar, give it a bit of padding.
 // I want to use a very appbar from mui.
 // if there are styling issues, why?
@@ -25,6 +26,7 @@ export default function Navbar({title}) {
         sx={{ mr: 2 }}
       >
         {/* a nested icon */}
+        <BlenderIcon/>
       </IconButton>
 
       {/* our typography will use our prop */}
