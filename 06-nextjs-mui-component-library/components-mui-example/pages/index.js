@@ -17,7 +17,6 @@ export default function Home() {
       {/*
         Observing the api here: https://mui.com/material-ui/api/container/
         this will render my Container as a main component.
-
         The sx prop allows us to do
         one off customization to the element.
         docs here: https://mui.com/material-ui/customization/how-to-customize/#the-sx-prop
