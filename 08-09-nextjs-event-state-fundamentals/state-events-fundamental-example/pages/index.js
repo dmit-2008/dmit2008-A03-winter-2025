@@ -39,7 +39,7 @@ export default function Home() {
   const handleForm = (event) => {
     // prevent the default action
     event.preventDefault()
-
+    // see our
     console.log(`
       Value of todoValue is ${todoValue}
     `)
@@ -62,7 +62,8 @@ export default function Home() {
         >
           <Grid container spacing={2}>
              <Grid size={10}>
-              {/* this will be for input
+              {/*
+                this will be for input
                 make it controlled
                 that it updates the stateful
                 value.
