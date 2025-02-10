@@ -26,6 +26,15 @@ export default function Home() {
   // like so import { useState } from 'react'
   // and not import React from 'react'
 
+  // note you can create function in react components
+  const updateTodoValue = (event) => {
+    // the event is a react event object
+    // docs here: https://react.dev/reference/react-dom/components/common#react-event-object
+    setTodoValue(event.target.value)
+    // and you can see the stateful value update
+    // in react dev tools when you click the home
+    // component.
+  }
 
 
   return (
