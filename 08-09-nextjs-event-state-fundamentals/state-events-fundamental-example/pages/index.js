@@ -10,6 +10,7 @@ if you're done this create a stateful variable for todoValue.
 import Container from '@mui/material/Container';
 // we're using Grid2 because the original version was deprecated.
 import Grid from '@mui/material/Grid2';
+import TextField from '@mui/material/TextField';
 
 
 export default function Home() {
@@ -24,6 +25,11 @@ export default function Home() {
           <Grid container space={2}>
              <Grid size={10}>
               {/* this will be for input */}
+              <TextField
+                id="new-todo-input"
+                label="New Todo"
+                variant="outlined"
+              />
              </Grid>
              <Grid size={2}>
               {/* this is going to be the button to add the item. */}
