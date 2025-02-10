@@ -7,6 +7,7 @@ if you're stuck take a look at the MUI docs!
 
 if you're done this create a stateful variable for todoValue.
 */
+import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 // we're using Grid2 because the original version was deprecated.
 import Grid from '@mui/material/Grid2';
@@ -32,10 +33,17 @@ export default function Home() {
                 id="new-todo-input"
                 label="New Todo"
                 variant="outlined"
+                fullWidth
               />
              </Grid>
              <Grid size={2}>
               {/* this is going to be the button to add the item. */}
+              <Button
+                size="large"
+                variant="contained"
+              >
+                Add Todo
+              </Button>
              </Grid>
           </Grid>
         </form>
