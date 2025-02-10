@@ -8,6 +8,9 @@ if you're stuck take a look at the MUI docs!
 if you're done this create a stateful variable for todoValue.
 */
 import Container from '@mui/material/Container';
+// we're using Grid2 because the original version was deprecated.
+import Grid from '@mui/material/Grid2';
+
 
 export default function Home() {
   return (
@@ -18,7 +21,14 @@ export default function Home() {
       >
         {/* we're going to hook into this shortly. */}
         <form>
-
+          <Grid container space={2}>
+             <Grid size={10}>
+              {/* this will be for input */}
+             </Grid>
+             <Grid size={2}>
+              {/* this is going to be the button to add the item. */}
+             </Grid>
+          </Grid>
         </form>
       </Container>
     </div>
