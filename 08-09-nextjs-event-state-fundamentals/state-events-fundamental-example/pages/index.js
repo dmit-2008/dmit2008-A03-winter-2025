@@ -61,6 +61,7 @@ export default function Home() {
                 variant="outlined"
                 fullWidth
                 value={todoValue}
+                onChange={updateTodoValue}
               />
              </Grid>
              <Grid size={2}>
