@@ -39,7 +39,7 @@ export default function Home() {
       >
         {/* we're going to hook into this shortly. */}
         <form>
-          <Grid container space={2}>
+          <Grid container spacing={2}>
              <Grid size={10}>
               {/* this will be for input
                 make it controlled
@@ -51,6 +51,7 @@ export default function Home() {
                 label="New Todo"
                 variant="outlined"
                 fullWidth
+                value={todoValue}
               />
              </Grid>
              <Grid size={2}>
