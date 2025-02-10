@@ -35,6 +35,16 @@ export default function Home() {
     // in react dev tools when you click the home
     // component.
   }
+  //
+  const handleForm = (event) => {
+    // prevent the default action
+    event.preventDefault()
+
+    console.log(`
+      Value of todoValue is ${todoValue}
+    `)
+  }
+
 
 
   return (
@@ -47,7 +57,9 @@ export default function Home() {
         }}
       >
         {/* we're going to hook into this shortly. */}
-        <form>
+        <form
+          onSubmit={handleForm}
+        >
           <Grid container spacing={2}>
              <Grid size={10}>
               {/* this will be for input
@@ -65,10 +77,15 @@ export default function Home() {
               />
              </Grid>
              <Grid size={2}>
-              {/* this is going to be the button to add the item. */}
+              {/* this is going to be the button to add the item.
+                we're going to make the button
+                a submit button so we can handle
+                the form.
+              */}
               <Button
                 size="large"
                 variant="contained"
+                type="submit"
               >
                 Add Todo
               </Button>
