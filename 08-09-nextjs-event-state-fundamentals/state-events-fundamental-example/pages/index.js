@@ -7,6 +7,9 @@ if you're stuck take a look at the MUI docs!
 
 if you're done this create a stateful variable for todoValue.
 */
+// this framework level import
+import { useState } from 'react'
+
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 // we're using Grid2 because the original version was deprecated.
@@ -15,6 +18,16 @@ import TextField from '@mui/material/TextField';
 
 
 export default function Home() {
+  // create a stateful variable
+  // todoValue
+  const [todoValue, setTodoValue] = useState("")
+  // note that we're using useState rather than
+  // React.useState because we are importing
+  // like so import { useState } from 'react'
+  // and not import React from 'react'
+
+
+
   return (
     <div>
       <Container
@@ -28,7 +41,11 @@ export default function Home() {
         <form>
           <Grid container space={2}>
              <Grid size={10}>
-              {/* this will be for input */}
+              {/* this will be for input
+                make it controlled
+                that it updates the stateful
+                value.
+              */}
               <TextField
                 id="new-todo-input"
                 label="New Todo"
