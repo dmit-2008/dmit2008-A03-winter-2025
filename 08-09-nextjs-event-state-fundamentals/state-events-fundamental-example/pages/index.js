@@ -24,7 +24,7 @@ import TextField from '@mui/material/TextField';
 
 export default function Home() {
   const SAMPLE_TODOS = [
-    "gripe brightspace",
+    "gripe about brightspace",
     "annoy students about events",
     "not make typos, just learning moments",
     "watch canada beat the crap out sweden"
@@ -33,6 +33,10 @@ export default function Home() {
   // I want you to create a list in the jsx
   // in grid size 12 (a row)
   // using the sample todos above.
+
+  // make the a stateful value
+  // where the default value is the
+  // sample todos, use it in your jsx
 
 
   // create a stateful variable
@@ -117,9 +121,9 @@ export default function Home() {
                 todos created.
               */}
               <List>
-                { SAMPLE_TODOS.map((todo)=> {
+                { SAMPLE_TODOS.map((todo, index)=> {
                   // a single jsx node.
-                  return <ListItem>
+                  return <ListItem key={index}>
                     <ListItemText
                       primary={todo}
                     />
