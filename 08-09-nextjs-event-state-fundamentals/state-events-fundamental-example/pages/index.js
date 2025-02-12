@@ -68,6 +68,12 @@ export default function Home() {
     // with the new value
     // to set the state in the form.
 
+    // we're createing a new array with all
+    // of the existing item spread into it.
+    let tempTodoList = [todoValue, ...todoList]
+    console.log(tempTodoList)
+    // I'm just going to set the state of todoList
+
 
     // we're going to reset the todoValue
     setTodoValue("")
