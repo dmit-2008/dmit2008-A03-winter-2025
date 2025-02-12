@@ -8,10 +8,11 @@ if you're stuck take a look at the MUI docs!
 if you're done this create a stateful variable for todoValue.
 */
 // this framework level import
-import { useState } from 'react'
+import { useState, Fragment } from 'react'
 
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import Divider from '@mui/material/Divider';
 // we're using Grid2 because the original version was deprecated.
 import Grid from '@mui/material/Grid2';
 // I'm going to import all of my list components here.
@@ -79,8 +80,6 @@ export default function Home() {
     setTodoValue("")
   }
 
-
-
   return (
     <div>
       <Container
@@ -133,13 +132,21 @@ export default function Home() {
                 stateful value of todoList
               */}
               <List>
+                <Divider/>
                 { todoList.map((todo, index)=> {
                   // a single jsx node.
-                  return <ListItem key={index}>
-                    <ListItemText
-                      primary={todo}
-                    />
-                  </ListItem>
+                  // a fragment is a special jsx
+                  // ghost node that doesn't add
+                  // any html.
+                  // normally you can use <> jsx here </>
+                  return <Fragment key={index}>
+                    <ListItem >
+                      <ListItemText
+                        primary={todo}
+                      />
+                    </ListItem>
+                    <Divider/>
+                  </Fragment>
                 })}
               </List>
              </Grid>
