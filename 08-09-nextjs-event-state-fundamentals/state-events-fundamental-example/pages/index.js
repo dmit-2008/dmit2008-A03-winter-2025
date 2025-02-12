@@ -15,12 +15,14 @@ import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 // we're using Grid2 because the original version was deprecated.
 import Grid from '@mui/material/Grid2';
+import IconButton from '@mui/material/IconButton';
 // I'm going to import all of my list components here.
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-
 import TextField from '@mui/material/TextField';
+
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 export default function Home() {
@@ -140,7 +142,14 @@ export default function Home() {
                   // any html.
                   // normally you can use <> jsx here </>
                   return <Fragment key={index}>
-                    <ListItem >
+                    {/* go add a delete from mui */}
+                    <ListItem
+                      secondaryAction={
+                        <IconButton edge="end">
+                          <DeleteIcon />
+                        </IconButton>
+                      }
+                    >
                       <ListItemText
                         primary={todo}
                       />
