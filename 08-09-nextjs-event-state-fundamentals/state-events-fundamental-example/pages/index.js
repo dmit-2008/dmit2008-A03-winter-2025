@@ -34,10 +34,10 @@ export default function Home() {
   // in grid size 12 (a row)
   // using the sample todos above.
 
-  // make the a stateful value
-  // where the default value is the
-  // sample todos, use it in your jsx
-
+  // make the list a stateful value
+  // where the default value of that list
+  // is the sample todos, use it in your jsx
+  const [todoList, setTodoList] = useState(SAMPLE_TODOS)
 
   // create a stateful variable
   // todoValue
@@ -119,9 +119,11 @@ export default function Home() {
               {/*
                 we'll loop through our
                 todos created.
+                Change SAMPLE_TODOS to the
+                stateful value of todoList
               */}
               <List>
-                { SAMPLE_TODOS.map((todo, index)=> {
+                { todoList.map((todo, index)=> {
                   // a single jsx node.
                   return <ListItem key={index}>
                     <ListItemText
