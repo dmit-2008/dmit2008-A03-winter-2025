@@ -18,6 +18,19 @@ import TextField from '@mui/material/TextField';
 
 
 export default function Home() {
+  //
+  const SAMPLE_TODOS = [
+    "gripe brightspace",
+    "annoy students about events",
+    "not make typos, just learning moments",
+    "watch canada beat the crap out sweden"
+  ]
+  // take a look at the mui documentation
+  // I want you to create a list in the jsx
+  // in grid size 12 (a row)
+  // using the sample todos above.
+
+
   // create a stateful variable
   // todoValue
   const [todoValue, setTodoValue] = useState("")
@@ -43,6 +56,9 @@ export default function Home() {
     console.log(`
       Value of todoValue is ${todoValue}
     `)
+
+    // we're going to reset the todoValue
+    setTodoValue("")
   }
 
 
@@ -90,6 +106,9 @@ export default function Home() {
               >
                 Add Todo
               </Button>
+             </Grid>
+             <Grid size={12}>
+              {/* make me a list */}
              </Grid>
           </Grid>
         </form>
