@@ -73,7 +73,7 @@ export default function Home() {
     let tempTodoList = [todoValue, ...todoList]
     console.log(tempTodoList)
     // I'm just going to set the state of todoList
-
+    setTodoList(tempTodoList)
 
     // we're going to reset the todoValue
     setTodoValue("")
