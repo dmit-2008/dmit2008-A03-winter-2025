@@ -112,7 +112,20 @@ export default function Home() {
               </Button>
              </Grid>
              <Grid size={12}>
-              {/* make me a list */}
+              {/*
+                we'll loop through our
+                todos created.
+              */}
+              <List>
+                { SAMPLE_TODOS.map((todo)=> {
+                  // a single jsx node.
+                  return <ListItem>
+                    <ListItemText
+                      primary={todo}
+                    />
+                  </ListItem>
+                })}
+              </List>
              </Grid>
           </Grid>
         </form>
