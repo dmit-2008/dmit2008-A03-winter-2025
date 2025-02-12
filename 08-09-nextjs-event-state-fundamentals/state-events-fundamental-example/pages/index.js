@@ -64,6 +64,10 @@ export default function Home() {
     console.log(`
       Value of todoValue is ${todoValue}
     `)
+    // I want you to make a copy of the todoList
+    // with the new value
+    // to set the state in the form.
+
 
     // we're going to reset the todoValue
     setTodoValue("")
