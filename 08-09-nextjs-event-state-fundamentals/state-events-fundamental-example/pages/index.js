@@ -82,6 +82,16 @@ export default function Home() {
     setTodoValue("")
   }
 
+  const deleteTodoItem = (index) => {
+    console.log("deleting index", index)
+    // i want create a temp array
+    let tempTodoList = [...todoList] // deep copy
+    // i want you splice
+    tempTodoList.splice(index, 1)
+    // i want you to set the state.
+    setTodoList(tempTodoList)
+  }
+
   return (
     <div>
       <Container
@@ -142,16 +152,28 @@ export default function Home() {
                   // any html.
                   // normally you can use <> jsx here </>
                   return <Fragment key={index}>
-                    {/* go add a delete from mui */}
+                    {/*
+                      go add a delete from mui
+                      you can create a one line function
+                      so that you can call a function with
+                      specific arguments without it being
+                      fired immediately
+                    */}
                     <ListItem
                       secondaryAction={
-                        <IconButton edge="end">
+                        <IconButton
+                          edge="end"
+                          onClick={
+                            () => {deleteTodoItem(index)}
+                          }
+                        >
                           <DeleteIcon />
                         </IconButton>
                       }
                     >
                       <ListItemText
                         primary={todo}
+                        secondary={`index ${index}`}
                       />
                     </ListItem>
                     <Divider/>
