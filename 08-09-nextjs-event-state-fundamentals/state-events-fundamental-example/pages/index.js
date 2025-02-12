@@ -18,7 +18,6 @@ import TextField from '@mui/material/TextField';
 
 
 export default function Home() {
-  //
   const SAMPLE_TODOS = [
     "gripe brightspace",
     "annoy students about events",
