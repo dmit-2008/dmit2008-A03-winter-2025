@@ -1,8 +1,7 @@
-import { MOVIE_LIST } from '../utils/movies'
+// import useState from react
+import {useState} from 'react'
 
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
@@ -15,7 +14,25 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 
+import { MOVIE_LIST } from '../utils/movies'
+
+
+// I want you to make the movieList stateful
+// i want you make the inputs controlled (do this with one line funcitons)
+
 export default function Home() {
+  // three stateful variables
+  const [movies, setMovies] = useState(MOVIE_LIST)
+  // let's make these controlled.
+  const [searchValue, setSearchValue] = useState("")
+  const [year, setYear] = useState("")
+
+  // I want you to create the function to filter
+  // these things.
+  // use state stateful values.
+
+
+
   return (
     <div>
       <Head>
@@ -41,7 +58,10 @@ export default function Home() {
                   label="search..."
                   variant="standard"
                   sx={{width: '100%'}}
-                  
+                  value={searchValue}
+                  onChange={(event) => {
+                    setSearchValue(event.target.value)
+                  }}
                 />
               </Grid>
               <Grid item xs={4}>
@@ -50,7 +70,10 @@ export default function Home() {
                   label="year"
                   variant="standard"
                   sx={{width: '100%'}}
-                 
+                  value={year}
+                  onChange={(event)=> {
+                    setYear(event.target.value)
+                  }}
                 />
               </Grid>
               <Grid item xs={2}>
@@ -65,7 +88,7 @@ export default function Home() {
             </Grid>
           </form>
           <List sx={{width: `100%`}}>
-          { MOVIE_LIST.map((movieData, index)=> {
+          { movies.map((movieData, index)=> {
               return <ListItem key={index}>
                 <ListItemText>
                   <Typography variant="p" component="div">
