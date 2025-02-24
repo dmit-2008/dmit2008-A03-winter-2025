@@ -30,8 +30,23 @@ export default function Home() {
   // I want you to create the function to filter
   // these things.
   // use state stateful values.
+  const handleForm = (event) => {
+    event.preventDefault()
+    // we're going to make a copy of the movie lisl
+    let filteredMovies = [...MOVIE_LIST]
+    // we're going to apply filters to it.
+    // I'm going to check to see if my filter isn't empty
+    if (searchValue.trim() !== "") {
+      // apply the filter here
+      console.log(searchValue)
+      console.log(filteredMovies)
+    }
 
+    // we're going to set it.
+    setMovies(filteredMovies)
+  }
 
+  // we'll also do a little validation here
 
   return (
     <div>
@@ -50,7 +65,10 @@ export default function Home() {
           <Typography variant="h2" component="h2" style={{textAlign: "center"}}>
             Movies
           </Typography>
-          <form style={{width: '100%'}}>
+          <form
+            onSubmit={handleForm}
+            style={{width: '100%'}}
+          >
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <TextField
