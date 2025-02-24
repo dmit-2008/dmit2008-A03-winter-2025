@@ -24,6 +24,9 @@ import TextField from '@mui/material/TextField';
 
 import DeleteIcon from '@mui/icons-material/Delete';
 
+// import our own list
+import ListOfTodos from '@/components/ListOfTodos';
+
 
 export default function Home() {
   const SAMPLE_TODOS = [
@@ -143,46 +146,14 @@ export default function Home() {
                 Change SAMPLE_TODOS to the
                 stateful value of todoList
               */}
-              <List>
-                <Divider/>
-                { todoList.map((todo, index)=> {
-                  // a single jsx node.
-                  // a fragment is a special jsx
-                  // ghost node that doesn't add
-                  // any html.
-                  // normally you can use <> jsx here </>
-                  return <Fragment key={index}>
-                    {/*
-                      go add a delete from mui
-                      you can create a one line function
-                      so that you can call a function with
-                      specific arguments without it being
-                      fired immediately
-                    */}
-                    <ListItem
-                      secondaryAction={
-                        <IconButton
-                          edge="end"
-                          onClick={
-                            () => {deleteTodoItem(index)}
-                          }
-                        >
-                          <DeleteIcon />
-                        </IconButton>
-                      }
-                    >
-                      <ListItemText
-                        primary={todo}
-                        secondary={`index ${index}`}
-                      />
-                    </ListItem>
-                    <Divider/>
-                  </Fragment>
-                })}
-              </List>
+
              </Grid>
           </Grid>
         </form>
+        <ListOfTodos
+          todoList={todoList}
+          deleteTodoItem={deleteTodoItem}
+        />
       </Container>
     </div>
   );
