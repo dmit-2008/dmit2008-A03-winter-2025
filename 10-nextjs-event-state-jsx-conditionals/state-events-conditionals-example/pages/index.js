@@ -50,10 +50,7 @@ export default function Home() {
     // i'm check to see if year is empty
     if (year.trim() !== "") {
       filteredMovies = filteredMovies.filter((movie) => {
-        console.log(year)
-        console.log(movie)
-        console.log("-------------------------")
-        return true
+        return parseInt(year) === movie.year
       })
     }
 
