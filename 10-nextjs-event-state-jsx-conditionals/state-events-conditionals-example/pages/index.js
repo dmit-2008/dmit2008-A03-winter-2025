@@ -42,14 +42,9 @@ export default function Home() {
       console.log(filteredMovies)
       // filter it, hint use .filter
       filteredMovies = filteredMovies.filter((movie) => {
-        console.log("Beginning of the iteration")
-        console.log(searchValue)
-        console.log(movie)
         // check for the condition, case insensitive
         let lowerSearch = searchValue.toLowerCase()
         let lowerMovieName = movie.name.toLowerCase()
-        console.log(lowerMovieName.includes(lowerSearch))
-        console.log("---------------------")
         return lowerMovieName.includes(lowerSearch)
       })
     }
