@@ -38,14 +38,22 @@ export default function Home() {
     // I'm going to check to see if my filter isn't empty
     if (searchValue.trim() !== "") {
       // apply the filter here
-      console.log(searchValue)
-      console.log(filteredMovies)
       // filter it, hint use .filter
       filteredMovies = filteredMovies.filter((movie) => {
         // check for the condition, case insensitive
         let lowerSearch = searchValue.toLowerCase()
         let lowerMovieName = movie.name.toLowerCase()
         return lowerMovieName.includes(lowerSearch)
+      })
+    }
+
+    // i'm check to see if year is empty
+    if (year.trim() !== "") {
+      filteredMovies = filteredMovies.filter((movie) => {
+        console.log(year)
+        console.log(movie)
+        console.log("-------------------------")
+        return true
       })
     }
 
