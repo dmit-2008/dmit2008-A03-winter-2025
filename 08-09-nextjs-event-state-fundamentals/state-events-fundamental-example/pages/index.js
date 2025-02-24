@@ -10,19 +10,7 @@ if you're done this create a stateful variable for todoValue.
 // this framework level import
 import { useState, Fragment } from 'react'
 
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import Divider from '@mui/material/Divider';
-// we're using Grid2 because the original version was deprecated.
-import Grid from '@mui/material/Grid2';
-import IconButton from '@mui/material/IconButton';
-// I'm going to import all of my list components here.
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import TextField from '@mui/material/TextField';
-
-import DeleteIcon from '@mui/icons-material/Delete';
 
 // import our own list
 import ListOfTodos from '@/components/ListOfTodos';
