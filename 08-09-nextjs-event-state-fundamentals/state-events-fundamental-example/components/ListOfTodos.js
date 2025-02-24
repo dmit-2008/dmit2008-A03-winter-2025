@@ -28,6 +28,9 @@ export default function ListOfTodos(
       // ghost node that doesn't add
       // any html.
       // normally you can use <> jsx here </>
+
+      // challenge make this a component will you need
+      // a fragment?
       return <Fragment key={index}>
         {/*
           go add a delete from mui
