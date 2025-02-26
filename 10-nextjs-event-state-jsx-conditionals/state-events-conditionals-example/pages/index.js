@@ -27,11 +27,17 @@ export default function Home() {
   const [searchValue, setSearchValue] = useState("")
   const [year, setYear] = useState("")
 
+  // display or hide the error message.
+  const [errorMessage, setErrorMessage] = useState("")
+
   // I want you to create the function to filter
   // these things.
   // use state stateful values.
   const handleForm = (event) => {
     event.preventDefault()
+    // validateYear
+    validateYear()
+
     // we're going to make a copy of the movie lisl
     let filteredMovies = [...MOVIE_LIST]
     // we're going to apply filters to it.
@@ -61,8 +67,24 @@ export default function Home() {
   // we'll also do a little validation here
   const validateYear = () => {
     // call this in handle form.
+    if (year.trim() === "") {
+      setErrorMessage("")
+      return true
+    }
     // validate if it's a string
+    if (isNaN(year)) {
+      setErrorMessage("Please enter a number for the year")
+      return false
+    }
+
     // validate if it's a year between 1895 and 2200
+    if (parseInt(year) > 2200 || parseInt(year) < 1895) {
+      setErrorMessage("Not a valid year")
+      return false
+    }
+
+    setErrorMessage("")
+    return true
     // display an error message that makes on the page
     // using an mui alert.
     // return true or false depending if it's valid
@@ -120,7 +142,7 @@ export default function Home() {
                 <Button
                   type="submit"
                   variant="contained"
-                >Filter</Button>
+                  >Filter</Button>
               </Grid>
               <Grid item xs={10}>
                 {/* Add the error message here*/}
