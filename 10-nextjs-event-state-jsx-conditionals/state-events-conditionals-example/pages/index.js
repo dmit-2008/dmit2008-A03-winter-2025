@@ -170,15 +170,26 @@ export default function Home() {
               // list the amount
               // if there are none display
               // no results found.
-
+              movies.length === 0 ?
+                <ListItem >
+                  <ListItemText
+                    primary={`No search results found`}
+                  />
+                </ListItem>
+                :
+                <ListItem >
+                  <ListItemText
+                    primary={`${movies.length} results found`}
+                  />
+                </ListItem>
             }
             { movies.map((movieData, index)=> {
                 return <ListItem key={index}>
-                  <ListItemText>
-                    <Typography variant="p" component="div">
-                      {movieData.name} ({movieData.year})
-                    </Typography>
-                  </ListItemText>
+                  <ListItemText
+                    primary={`${movieData.name} (${movieData.year})`}
+                  />
+
+
                 </ListItem>
               })
             }
