@@ -59,6 +59,16 @@ export default function Home() {
   }
 
   // we'll also do a little validation here
+  const validateYear = () => {
+    // call this in handle form.
+    // validate if it's a string
+    // validate if it's a year between 1895 and 2200
+    // display an error message that makes on the page
+    // using an mui alert.
+    // return true or false depending if it's valid
+    // hint: use short circuits.
+  }
+
 
   return (
     <div>
@@ -118,16 +128,16 @@ export default function Home() {
             </Grid>
           </form>
           <List sx={{width: `100%`}}>
-          { movies.map((movieData, index)=> {
-              return <ListItem key={index}>
-                <ListItemText>
-                  <Typography variant="p" component="div">
-                    {movieData.name} ({movieData.year})
-                  </Typography>
-                </ListItemText>
-              </ListItem>
-            })
-          }
+            { movies.map((movieData, index)=> {
+                return <ListItem key={index}>
+                  <ListItemText>
+                    <Typography variant="p" component="div">
+                      {movieData.name} ({movieData.year})
+                    </Typography>
+                  </ListItemText>
+                </ListItem>
+              })
+            }
           </List>
         </Container>
       </main>
