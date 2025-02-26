@@ -145,7 +145,21 @@ export default function Home() {
                   >Filter</Button>
               </Grid>
               <Grid item xs={10}>
-                {/* Add the error message here*/}
+                {/*
+                short circuits are just essentially
+                small if statements like this;
+                if (errorMessage !== "") {
+                  show alert.
+                }
+
+                */
+                errorMessage !== "" &&
+                  <Alert severity="error">
+                    {errorMessage}
+                  </Alert>
+                }
+
+
               </Grid>
             </Grid>
           </form>
