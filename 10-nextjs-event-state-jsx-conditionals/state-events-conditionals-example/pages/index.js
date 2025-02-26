@@ -164,6 +164,14 @@ export default function Home() {
             </Grid>
           </form>
           <List sx={{width: `100%`}}>
+            { // I want you folks
+              // check if there are movies
+              // if there are results
+              // list the amount
+              // if there are none display
+              // no results found.
+
+            }
             { movies.map((movieData, index)=> {
                 return <ListItem key={index}>
                   <ListItemText>
