@@ -30,6 +30,13 @@ import Typography from '@mui/material/Typography';
 
 
 export default function Home() {
+  // make the stateful variables
+  // put them in the jsx
+
+  // make the request of adaptation ratings/reviews to the backend
+  // set the state.
+
+
   const MOCK_ADAPTATION_RATING = [{
     'title': 'Fight Club',
     'comment': 'Great movie and book',
@@ -122,13 +129,13 @@ export default function Home() {
                     {adaptation.rating}
                   </Avatar>
                 }
-                
+
                 title={
                   <Typography variant="body2" color="text.secondary">
                     {adaptation.title}
                   </Typography>
                 }
-                
+
               />
               <CardContent>
                 <Typography variant="body2" color="text.secondary">
