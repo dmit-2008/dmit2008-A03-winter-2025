@@ -51,7 +51,16 @@ export default function Home() {
   // make the request of adaptation ratings/reviews to the backend
   // set the state.
   const getReviews = async () => {
-
+    try {
+      const response = await fetch(`${BASE_URL}/reviews`)
+      const data = await response.json()
+      console.log(data)
+      // set the reviews to what we've fetched from the backend
+      setReviews(data)
+    } catch (error) {
+      console.log(error)
+      // let's display something later on.
+    }
   }
 
 
