@@ -36,6 +36,8 @@ const MOCK_ADAPTATION_RATING = [{
   'rating': 10
 }]
 
+const BASE_URL = "http://localhost:3000"
+
 export default function Home() {
   // make the stateful variables
   // put them in the jsx
@@ -48,6 +50,11 @@ export default function Home() {
 
   // make the request of adaptation ratings/reviews to the backend
   // set the state.
+  const getReviews = async () => {
+
+  }
+
+
 
   return (
     <div>
@@ -100,6 +107,10 @@ export default function Home() {
                     row
                     aria-labelledby="adaptation-rating"
                     name="rating-buttons-group"
+                    value={rating}
+                    onChange={(event)=> {
+                      setRating(event.target.value)
+                    }}
                   >
                     <FormControlLabel value="1" control={<Radio />} label="1" />
                     <FormControlLabel value="2" control={<Radio />} label="2" />
@@ -132,11 +143,12 @@ export default function Home() {
           >
             <Button
               variant="contained"
+              onClick={getReviews}
             >
               Load All Current Reviews
             </Button>
           </Box>
-          {MOCK_ADAPTATION_RATING.map((adaptation, index)=> {
+          {reviews.map((adaptation, index)=> {
             return <Card key={index}>
               <CardHeader
                 avatar={
