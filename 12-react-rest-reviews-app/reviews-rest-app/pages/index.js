@@ -1,3 +1,5 @@
+import {useState} from 'react'
+
 import Head from 'next/head'
 import Image from 'next/image'
 
@@ -28,20 +30,25 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
 
+const MOCK_ADAPTATION_RATING = [{
+  'title': 'Fight Club',
+  'comment': 'Great movie and book',
+  'rating': 10
+}]
 
 export default function Home() {
   // make the stateful variables
   // put them in the jsx
+  const [title, setTitle] = useState("")
+  const [comments, setComments] = useState("")
+  // initialize the state of the rating to one.
+  const [rating, setRating] = useState("1")
+  // all of the reviews that we're going to loop through.
+  const [reviews, setReviews] = useState(MOCK_ADAPTATION_RATING)
 
   // make the request of adaptation ratings/reviews to the backend
   // set the state.
 
-
-  const MOCK_ADAPTATION_RATING = [{
-    'title': 'Fight Club',
-    'comment': 'Great movie and book',
-    'rating': 10
-  }]
   return (
     <div>
       <Head>
@@ -67,6 +74,10 @@ export default function Home() {
                   label="Adaptation Title"
                   fullWidth
                   variant="standard"
+                  value={title}
+                  onChange={(event)=> {
+                    setTitle(event.target.value)
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={12}>
@@ -76,6 +87,10 @@ export default function Home() {
                   label="Comments"
                   fullWidth
                   variant="standard"
+                  value={comments}
+                  onChange={(event)=> {
+                    setComments(event.target.value)
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={12}>
