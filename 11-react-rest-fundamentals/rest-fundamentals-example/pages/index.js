@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import Head from 'next/head'
 
 import AppBar from '@mui/material/AppBar';
@@ -10,9 +12,34 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
 export default function Home() {
-  // when the user clicks the button
   // I want you to load the data in a stateful variable called quoteData
+  const [quoteData, setQuoteData] = useState({
+    quote: "Answer my questions",
+    author: "Dan the wisdom man."
+  })
+
+  // when the user clicks the button
+  const getRandomQuote = async () => {
+    // since the endpoint is on the same domain
+    // (localhost:3000 or whatever production you use)
+    // we don't need to specify the path.
+
+    // handle requests use a try catch
+    try {
+      // make the request
+      const response = await fetch('/api/random_quote')
+      const data = await response.json()
+      // set the state
+      setQuoteData(data)
+    } catch (error) {
+      // this error we're not handling but you should
+      // display something to the user.
+      console.log(error)
+    }
+  }
   // I want you to show it on the page.
+
+  // you'll need to handle some type of loading case.
 
   return (
     <div>
@@ -42,7 +69,7 @@ export default function Home() {
             }}
           >
             <Typography variant="h5" align="center" color="text.primary" paragraph>
-              Quote here.
+              {quoteData.quote}
             </Typography>
             <Typography
               component="h1"
@@ -51,7 +78,7 @@ export default function Home() {
               color="text.secondary"
               gutterBottom
             >
-              Author here
+              {quoteData.author}
             </Typography>
             <Box
              display="flex"
@@ -60,6 +87,7 @@ export default function Home() {
             >
               <Button
                 variant="contained"
+                onClick={getRandomQuote}
               >
                 Get New Quote
               </Button>
