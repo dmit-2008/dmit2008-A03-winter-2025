@@ -36,7 +36,9 @@ export default function Home() {
   const handleForm = (event) => {
     event.preventDefault()
     // validateYear
-    validateYear()
+    if (!validateYear()) {
+      setMovies([])
+    }
 
     // we're going to make a copy of the movie lisl
     let filteredMovies = [...MOVIE_LIST]
@@ -171,13 +173,13 @@ export default function Home() {
               // if there are none display
               // no results found.
               movies.length === 0 ?
-                <ListItem >
+                <ListItem>
                   <ListItemText
                     primary={`No search results found`}
                   />
                 </ListItem>
                 :
-                <ListItem >
+                <ListItem>
                   <ListItemText
                     primary={`${movies.length} results found`}
                   />
