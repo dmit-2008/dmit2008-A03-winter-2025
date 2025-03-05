@@ -36,7 +36,7 @@ const MOCK_ADAPTATION_RATING = [{
   'rating': 10
 }]
 
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = "http://localhost:5000"
 
 export default function Home() {
   // make the stateful variables
@@ -158,8 +158,12 @@ export default function Home() {
             </Button>
           </Box>
           {reviews.map((adaptation, index)=> {
-            return <Card key={index}>
-              <CardHeader
+            return <Card
+              sx={{marginTop: 4}}
+              key={index}
+            >
+
+               <CardHeader
                 avatar={
                   <Avatar sx={{ bgcolor: 'blue' }} aria-label="recipe">
                     {adaptation.rating}
