@@ -120,6 +120,10 @@ export default function Home() {
   }
 
   // I want you to add a delete icon on the card.
+  // we're going to add a delete by id.
+  const removeReview = (id)=> {
+    console.log("removing review with id: ", id)
+  }
 
 
   return (
@@ -230,7 +234,14 @@ export default function Home() {
                 }
 
                 action={
-                  <IconButton>
+                  <IconButton
+                    onClick={() => {
+                      // this function we use the
+                      // id from the reivews in the
+                      // map above.
+                      removeReview(adaptation.id)
+                    }}
+                  >
                     <DeleteIcon />
                   </IconButton>
                 }
