@@ -63,7 +63,24 @@ export default function Home() {
     }
   }
 
+  // I want you to handle the form submission
+  const handleForm = (event) => {
+    event.preventDefault()
+    // short validation if the inputs are empty
+    if (title.trim() === "" || comments.trim() === "") {
+      return
+    }
+    // I want you to make the post request
+    // after we'll discuss different ways to update the
+    // frontend.
 
+  }
+
+  const resetForm = () => {
+    setTitle("")
+    setComments("")
+    setRating("1")
+  }
 
   return (
     <div>
@@ -81,7 +98,9 @@ export default function Home() {
       </AppBar>
       <main>
         <Container maxWidth="md">
-          <form>
+          <form
+            onSubmit={handleForm}
+          >
             <Grid container spacing={3}>
               <Grid item xs={12} sm={12}>
                 <TextField
