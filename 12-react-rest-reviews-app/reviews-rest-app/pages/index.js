@@ -50,7 +50,7 @@ export default function Home() {
 
   // make the request of adaptation ratings/reviews to the backend
   // set the state.
-  const getReviews = async () => {
+  const loadReviews = async () => {
     try {
       const response = await fetch(`${BASE_URL}/reviews`)
       const data = await response.json()
@@ -75,6 +75,7 @@ export default function Home() {
     // after we'll discuss different ways to update the
     // frontend.
     const REVIEWS_URL = `${BASE_URL}/reviews`
+    // wrap this in a try catch.
     const response = await fetch(REVIEWS_URL, {
       method: "POST", // we're giving info to the server
       headers: {
@@ -97,8 +98,14 @@ export default function Home() {
     // add the new review in an array where you
     // spread the current items in that array as well.
     // below uses the techniques we already know.
-    setReviews([newReview, ...reviews])
+    // setReviews([newReview, ...reviews])
 
+    // Option 2 call the original loadReviews
+    // this will always be in sync with the
+    // backend fetch.
+    // get it, and render on the page.
+    await loadReviews()
+    // this is kind of what react query does.
 
 
     resetForm()
@@ -199,7 +206,7 @@ export default function Home() {
           >
             <Button
               variant="contained"
-              onClick={getReviews}
+              onClick={loadReviews}
             >
               Load All Current Reviews
             </Button>
