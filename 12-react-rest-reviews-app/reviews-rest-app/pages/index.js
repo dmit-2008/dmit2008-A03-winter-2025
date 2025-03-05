@@ -77,10 +77,20 @@ export default function Home() {
     const REVIEWS_URL = `${BASE_URL}/reviews`
     const response = await fetch(REVIEWS_URL, {
       method: "POST", // we're giving info to the server
-      headers: {},
-      body: {}
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title: title,
+        comment: comments,
+        rating: parseInt(rating)
+      })
     })
+    const data = await response.json()
 
+    console.log(data)
+
+    // different ways to update the frontend.
 
 
     resetForm()
