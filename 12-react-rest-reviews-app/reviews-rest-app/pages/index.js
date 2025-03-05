@@ -86,11 +86,19 @@ export default function Home() {
         rating: parseInt(rating)
       })
     })
-    const data = await response.json()
+    const newReview = await response.json()
 
-    console.log(data)
+    console.log(newReview)
 
     // different ways to update the frontend.
+
+    // Option 1 updating the stateful value
+    // on the frontend.
+    // add the new review in an array where you
+    // spread the current items in that array as well.
+    // below uses the techniques we already know.
+    setReviews([newReview, ...reviews])
+
 
 
     resetForm()
