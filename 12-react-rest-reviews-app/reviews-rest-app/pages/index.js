@@ -64,16 +64,26 @@ export default function Home() {
   }
 
   // I want you to handle the form submission
-  const handleForm = (event) => {
+  const handleForm = async (event) => {
     event.preventDefault()
     // short validation if the inputs are empty
     if (title.trim() === "" || comments.trim() === "") {
+      // the rest of the func won't execute.
       return
     }
     // I want you to make the post request
     // after we'll discuss different ways to update the
     // frontend.
+    const REVIEWS_URL = `${BASE_URL}/reviews`
+    const response = await fetch(REVIEWS_URL, {
+      method: "POST", // we're giving info to the server
+      headers: {},
+      body: {}
+    })
 
+
+
+    resetForm()
   }
 
   const resetForm = () => {
