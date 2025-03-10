@@ -11,5 +11,24 @@ const getReviews = async () => {
   return data
 }
 
+// do the post request
+const postRequest = async ({
+  title, comments, rating // destructuring the params.
+}) => {
+  const response = await fetch(REVIEWS_URL, {
+    method: "POST", // we're giving info to the server
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      title: title,
+      comment: comments,
+      rating: parseInt(rating)
+    })
+  })
+  const newReview = await response.json()
+  return newReview
+}
+
 // option 1 for named exports are all below.
 export {getReviews}
