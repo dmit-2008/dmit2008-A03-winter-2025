@@ -5,26 +5,19 @@ import Head from 'next/head'
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
-
 import Container from '@mui/material/Container';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
 import DeleteIcon from '@mui/icons-material/Delete';
 
 // let's import our Navbar
 import Navbar from '../components/Navbar';
+// let's import our ReviewForm
+import ReviewForm from '../components/NewReview';
 
 import { getReviews, postReview, deleteReview } from '../utils/api/reviews';
 
@@ -40,10 +33,7 @@ const BASE_URL = "http://localhost:5000"
 export default function Home() {
   // make the stateful variables
   // put them in the jsx
-  const [title, setTitle] = useState("")
-  const [comments, setComments] = useState("")
-  // initialize the state of the rating to one.
-  const [rating, setRating] = useState("1")
+
   // all of the reviews that we're going to loop through.
   const [reviews, setReviews] = useState(MOCK_ADAPTATION_RATING)
 
@@ -62,53 +52,6 @@ export default function Home() {
     }
   }
 
-  // I want you to handle the form submission
-  const handleForm = async (event) => {
-    event.preventDefault()
-    // short validation if the inputs are empty
-    if (title.trim() === "" || comments.trim() === "") {
-      // the rest of the func won't execute.
-      return
-    }
-    // I want you to make the post request
-    // after we'll discuss different ways to update the
-    // frontend.
-
-    // wrap this in a try catch.
-    // we just removed all of the code
-    const newReview = await postReview({
-      title: title,
-      comments: comments,
-      rating: rating
-    })
-
-    console.log(newReview)
-
-    // different ways to update the frontend.
-
-    // Option 1 updating the stateful value
-    // on the frontend.
-    // add the new review in an array where you
-    // spread the current items in that array as well.
-    // below uses the techniques we already know.
-    // setReviews([newReview, ...reviews])
-
-    // Option 2 call the original loadReviews
-    // this will always be in sync with the
-    // backend fetch.
-    // get it, and render on the page.
-    await loadReviews()
-    // this is kind of what react query does.
-
-
-    resetForm()
-  }
-
-  const resetForm = () => {
-    setTitle("")
-    setComments("")
-    setRating("1")
-  }
 
   // I want you to add a delete icon on the card.
   // we're going to add a delete by id.
@@ -155,7 +98,9 @@ export default function Home() {
       <main>
         <Container maxWidth="md">
           {/* breakout ReviewForm */}
-
+          <ReviewForm
+            loadReviews={loadReviews}
+          />
           <Box
             sx={{
               pt: 2,

@@ -23,6 +23,18 @@
       "comment": "Great book and great show.",
       "rating": 10,
       "id": 7
+    },
+    {
+      "title": "Harry Potter",
+      "comment": "Voldemort was mid.",
+      "rating": 8,
+      "id": 8
+    },
+    {
+      "title": "Akira",
+      "comment": "a masterpiece",
+      "rating": 9,
+      "id": 9
     }
   ]
 }
