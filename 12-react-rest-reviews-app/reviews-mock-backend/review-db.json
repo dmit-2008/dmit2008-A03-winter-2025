@@ -13,34 +13,16 @@
       "rating": 10
     },
     {
-      "title": "Enders game",
-      "comment": "not catwoman or cats ",
-      "rating": 3,
-      "id": 4
-    },
-    {
       "title": "The man in the high castle",
       "comment": "show was great book was average.",
       "rating": 8,
       "id": 5
     },
     {
-      "title": "Game of thrones",
-      "comment": "George RR martin ain't gonna finish it. Show just watch the first 5 season.",
-      "rating": 8,
-      "id": 6
-    },
-    {
       "title": "Fight Club",
       "comment": "Great book and great show.",
       "rating": 10,
       "id": 7
-    },
-    {
-      "title": "Adaptation",
-      "comment": "Nicholas Cage ",
-      "rating": 10,
-      "id": 8
     }
   ]
 }

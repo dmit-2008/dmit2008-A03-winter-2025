@@ -120,10 +120,43 @@ export default function Home() {
 
   // I want you to add a delete icon on the card.
   // we're going to add a delete by id.
-  const removeReview = (id) => {
+  const removeReview = async (id) => {
     console.log("removing review with id: ", id)
     // implement the delete.
     // create the url that you're going delete with
+    const DELETE_URL = `${BASE_URL}/reviews/${id}`
+    // do your self a favour on assignment 4a and print out
+    // the url for yourself for debugging.
+    console.log(DELETE_URL)
+    try {
+      const response = await fetch(DELETE_URL, {
+        method: "DELETE"
+      })
+      const data = await response.json()
+
+      // a great place to display a toast message
+      // our two options are the same as post request.
+      // you can update on the frontend or refresh the data
+      // on the backend.
+      // Option 1
+      // let tempReviews = reviews.filter((review)=> {
+      //   // this is going to loop through the reviews
+      //   // we're going to say keep all of htem that don't have
+      //   // the id passed ( which is the one to remove.)
+      //   return review.id !== id
+      // })
+      // setReviews(tempReviews)
+      // Option 2 just load the reviews (this is preferred)
+      await loadReviews()
+
+      // Note: we can't use splice because that's using the index
+      // and not the value in the object.
+    } catch (error) {
+      // we'll display something to the user.
+      console.error(error)
+    }
+
+
   }
 
 
