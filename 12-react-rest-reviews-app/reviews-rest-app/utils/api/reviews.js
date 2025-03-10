@@ -12,7 +12,8 @@ const getReviews = async () => {
 }
 
 // do the post request
-const postRequest = async ({
+// you could name this "createReview"
+const postReview = async ({
   title, comments, rating // destructuring the params.
 }) => {
   const response = await fetch(REVIEWS_URL, {
@@ -31,4 +32,4 @@ const postRequest = async ({
 }
 
 // option 1 for named exports are all below.
-export {getReviews}
+export {getReviews, postReview}

@@ -30,7 +30,7 @@ import Typography from '@mui/material/Typography';
 
 import DeleteIcon from '@mui/icons-material/Delete';
 
-import { getReviews } from '../utils/api/reviews';
+import { getReviews, postReview } from '../utils/api/reviews';
 
 
 const MOCK_ADAPTATION_RATING = [{
@@ -79,18 +79,11 @@ export default function Home() {
     // frontend.
     const REVIEWS_URL = `${BASE_URL}/reviews`
     // wrap this in a try catch.
-    const response = await fetch(REVIEWS_URL, {
-      method: "POST", // we're giving info to the server
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        title: title,
-        comment: comments,
-        rating: parseInt(rating)
-      })
+    const newReview = await postReview({
+      title: title,
+      comments: comments,
+      rating: rating
     })
-    const newReview = await response.json()
 
     console.log(newReview)
 
