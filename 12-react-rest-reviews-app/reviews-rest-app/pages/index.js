@@ -10,7 +10,6 @@ import Button from '@mui/material/Button';
 
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 
 import Container from '@mui/material/Container';
@@ -121,8 +120,10 @@ export default function Home() {
 
   // I want you to add a delete icon on the card.
   // we're going to add a delete by id.
-  const removeReview = (id)=> {
+  const removeReview = (id) => {
     console.log("removing review with id: ", id)
+    // implement the delete.
+    // create the url that you're going delete with
   }
 
 
