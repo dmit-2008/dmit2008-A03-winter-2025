@@ -30,7 +30,7 @@ import Typography from '@mui/material/Typography';
 
 import DeleteIcon from '@mui/icons-material/Delete';
 
-import { getReviews, postReview } from '../utils/api/reviews';
+import { getReviews, postReview, deleteReview } from '../utils/api/reviews';
 
 
 const MOCK_ADAPTATION_RATING = [{
@@ -77,8 +77,9 @@ export default function Home() {
     // I want you to make the post request
     // after we'll discuss different ways to update the
     // frontend.
-    const REVIEWS_URL = `${BASE_URL}/reviews`
+
     // wrap this in a try catch.
+    // we just removed all of the code
     const newReview = await postReview({
       title: title,
       comments: comments,
@@ -117,17 +118,8 @@ export default function Home() {
   // we're going to add a delete by id.
   const removeReview = async (id) => {
     console.log("removing review with id: ", id)
-    // implement the delete.
-    // create the url that you're going delete with
-    const DELETE_URL = `${BASE_URL}/reviews/${id}`
-    // do your self a favour on assignment 4a and print out
-    // the url for yourself for debugging.
-    console.log(DELETE_URL)
     try {
-      const response = await fetch(DELETE_URL, {
-        method: "DELETE"
-      })
-      const data = await response.json()
+      await deleteReview(id)
 
       // a great place to display a toast message
       // our two options are the same as post request.

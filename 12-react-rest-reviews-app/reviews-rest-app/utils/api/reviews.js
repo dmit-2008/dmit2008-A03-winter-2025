@@ -16,6 +16,7 @@ const getReviews = async () => {
 const postReview = async ({
   title, comments, rating // destructuring the params.
 }) => {
+  const REVIEWS_URL = `${BASE_URL}/reviews`
   const response = await fetch(REVIEWS_URL, {
     method: "POST", // we're giving info to the server
     headers: {
@@ -31,5 +32,20 @@ const postReview = async ({
   return newReview
 }
 
+// do the delete!
+const deleteReview = async (id) => {
+  // implement the delete.
+  // create the url that you're going delete with
+  const DELETE_URL = `${BASE_URL}/reviews/${id}`
+  // do your self a favour on assignment 4a and print out
+  // the url for yourself for debugging.
+  //  console.log(DELETE_URL)
+  const response = await fetch(DELETE_URL, {
+    method: "DELETE"
+  })
+  const data = await response.json()
+}
+
+
 // option 1 for named exports are all below.
-export {getReviews, postReview}
+export {getReviews, postReview, deleteReview}
