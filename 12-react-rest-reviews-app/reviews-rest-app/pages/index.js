@@ -30,6 +30,8 @@ import Typography from '@mui/material/Typography';
 
 import DeleteIcon from '@mui/icons-material/Delete';
 
+import { getReviews } from '../utils/api/reviews';
+
 
 const MOCK_ADAPTATION_RATING = [{
   'title': 'Fight Club',
@@ -53,8 +55,8 @@ export default function Home() {
   // set the state.
   const loadReviews = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/reviews`)
-      const data = await response.json()
+      // we just swap it out.
+      const data = await getReviews()
       console.log(data)
       // set the reviews to what we've fetched from the backend
       setReviews(data)
