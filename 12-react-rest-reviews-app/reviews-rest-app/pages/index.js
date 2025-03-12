@@ -22,20 +22,12 @@ import ReviewCard from '../components/ReviewCard';
 
 import { getReviews, deleteReview } from '../utils/api/reviews';
 
-
-const MOCK_ADAPTATION_RATING = [{
-  'title': 'Fight Club',
-  'comment': 'Great movie and book',
-  'rating': 10
-}]
-
-
 export default function Home() {
   // make the stateful variables
   // put them in the jsx
 
   // all of the reviews that we're going to loop through.
-  const [reviews, setReviews] = useState(MOCK_ADAPTATION_RATING)
+  const [reviews, setReviews] = useState([])
 
   // make the request of adaptation ratings/reviews to the backend
   // set the state.
