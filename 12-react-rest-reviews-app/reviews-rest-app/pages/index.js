@@ -28,7 +28,6 @@ const MOCK_ADAPTATION_RATING = [{
   'rating': 10
 }]
 
-const BASE_URL = "http://localhost:5000"
 
 export default function Home() {
   // make the stateful variables
