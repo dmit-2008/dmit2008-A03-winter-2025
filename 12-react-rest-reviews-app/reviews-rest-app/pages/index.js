@@ -2,25 +2,17 @@ import {useState} from 'react'
 
 import Head from 'next/head'
 
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardContent from '@mui/material/CardContent';
 import Container from '@mui/material/Container';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-
-import DeleteIcon from '@mui/icons-material/Delete';
 
 // let's import our Navbar
 import Navbar from '../components/Navbar';
 // let's import our ReviewForm
 import ReviewForm from '../components/NewReview';
-import ReviewCard from '../components/ReviewCard';
+import ReviewsList from '../components/ReviewsList';
 
-import { getReviews, deleteReview } from '../utils/api/reviews';
+import { getReviews } from '../utils/api/reviews';
 
 export default function Home() {
   // make the stateful variables
@@ -43,40 +35,6 @@ export default function Home() {
       // let's display something later on.
     }
   }
-
-
-  // I want you to add a delete icon on the card.
-  // we're going to add a delete by id.
-  const removeReview = async (id) => {
-    console.log("removing review with id: ", id)
-    try {
-      await deleteReview(id)
-
-      // a great place to display a toast message
-      // our two options are the same as post request.
-      // you can update on the frontend or refresh the data
-      // on the backend.
-      // Option 1
-      // let tempReviews = reviews.filter((review)=> {
-      //   // this is going to loop through the reviews
-      //   // we're going to say keep all of htem that don't have
-      //   // the id passed ( which is the one to remove.)
-      //   return review.id !== id
-      // })
-      // setReviews(tempReviews)
-      // Option 2 just load the reviews (this is preferred)
-      await loadReviews()
-
-      // Note: we can't use splice because that's using the index
-      // and not the value in the object.
-    } catch (error) {
-      // we'll display something to the user.
-      console.error(error)
-    }
-
-
-  }
-
 
   return (
     <div>
@@ -106,28 +64,10 @@ export default function Home() {
               Load All Current Reviews
             </Button>
           </Box>
-          {reviews.map((adaptation)=> {
-            // replacing the card with
-            // our new component.
-            return <ReviewCard
-              key={adaptation.id}
-              id={adaptation.id}
-              comment={adaptation.comment}
-              title={adaptation.title}
-              rating={adaptation.rating}
-              loadReviews={loadReviews}
-            />
-
-            // another way to write the above.
-            // is to spread the object of adaptation
-            // into the review card.
-            // return <ReviewCard
-            //   key={adaptation.id}
-            //   {...adaptation}
-            //   loadReviews={loadReviews}
-            // />
-          })}
-
+          <ReviewsList
+            reviews={reviews}
+            loadReviews={loadReviews}
+          />
         </Container>
       </main>
     </div>

@@ -13,7 +13,7 @@ import TextField from '@mui/material/TextField';
 import { postReview } from '../utils/api/reviews'
 
 
-export default function ReviewForm({
+export default function NewReview({
   // we are going to updating the form state.
   // if were rendering with option 2 you'll need
   loadReviews, // from the index.js

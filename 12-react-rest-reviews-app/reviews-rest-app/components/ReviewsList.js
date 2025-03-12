@@ -1,4 +1,4 @@
-
+import ReviewCard from "./ReviewCard"
 // a note passing down loadReviews, we'll learn
 // a better way to do this with the context api.
 // so that we can have a provider and not pass
@@ -39,7 +39,6 @@ export default function ReviewsList({
       //   loadReviews={loadReviews}
       // />
     })}
-    <div>sdfomthing</div>
   </>
 
 
