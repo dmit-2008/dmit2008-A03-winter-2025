@@ -19,7 +19,7 @@ import Navbar from '../components/Navbar';
 // let's import our ReviewForm
 import ReviewForm from '../components/NewReview';
 
-import { getReviews, postReview, deleteReview } from '../utils/api/reviews';
+import { getReviews, deleteReview } from '../utils/api/reviews';
 
 
 const MOCK_ADAPTATION_RATING = [{
