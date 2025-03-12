@@ -18,6 +18,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Navbar from '../components/Navbar';
 // let's import our ReviewForm
 import ReviewForm from '../components/NewReview';
+import ReviewCard from '../components/ReviewCard';
 
 import { getReviews, deleteReview } from '../utils/api/reviews';
 
@@ -113,45 +114,17 @@ export default function Home() {
               Load All Current Reviews
             </Button>
           </Box>
-          {reviews.map((adaptation, index)=> {
-            return <Card
-              sx={{marginTop: 4}}
-              key={index}
-            >
-
-               <CardHeader
-                avatar={
-                  <Avatar sx={{ bgcolor: 'blue' }} aria-label="recipe">
-                    {adaptation.rating}
-                  </Avatar>
-                }
-
-                action={
-                  <IconButton
-                    onClick={() => {
-                      // this function we use the
-                      // id from the reivews in the
-                      // map above.
-                      removeReview(adaptation.id)
-                    }}
-                  >
-                    <DeleteIcon />
-                  </IconButton>
-                }
-
-                title={
-                  <Typography variant="body2" color="text.secondary">
-                    {adaptation.title}
-                  </Typography>
-                }
-
-              />
-              <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                  {adaptation.comment}
-                </Typography>
-              </CardContent>
-            </Card>
+          {reviews.map((adaptation)=> {
+            // replacing the card with
+            // our new component.
+            return <ReviewCard
+              key={adaptation.id}
+              id={adaptation.id}
+              commment={adaptation.commment}
+              title={adaptation.title}
+              rating={adaptation.rating}
+              loadReviews={loadReviews}
+            />
           })}
 
         </Container>
