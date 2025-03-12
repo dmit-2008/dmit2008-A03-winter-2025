@@ -112,11 +112,20 @@ export default function Home() {
             return <ReviewCard
               key={adaptation.id}
               id={adaptation.id}
-              commment={adaptation.commment}
+              comment={adaptation.comment}
               title={adaptation.title}
               rating={adaptation.rating}
               loadReviews={loadReviews}
             />
+
+            // another way to write the above.
+            // is to spread the object of adaptation
+            // into the review card.
+            // return <ReviewCard
+            //   key={adaptation.id}
+            //   {...adaptation}
+            //   loadReviews={loadReviews}
+            // />
           })}
 
         </Container>
