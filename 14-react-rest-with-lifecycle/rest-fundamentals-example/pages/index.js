@@ -13,6 +13,10 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
 export default function Home() {
+  // let's make a state for loading and error
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState("") // a string.
+
   // I want you to make essentially a stateful or values.
   const [quoteData, setQuoteData] = useState({
     quote: "Default quote",
@@ -23,9 +27,15 @@ export default function Home() {
   // we'll have a discussion about handling all states.
   useEffect(()=> {
     console.log("Mounted")
-
+    // we're going to call an async function synchronously
+    // because you cant await in effect.
+    // that's okay because we're not using the result of
+    // function loadRandomQuote
+    loadRandomQuote()
   }, []) // empty dependency array means onmount (or unmount but won't use that much.)
-
+  // a note: in react 18-19, the react team made this effect with strict mode get called twice.
+  // but you can either option 1: turn off strict mode (just for now) in next.config.js
+  // option 2: use async fetch library like react-query.
 
   // I want you to create a function that is async
   // makes a request to https://stoic.tekloon.net/stoic-quote to get a random quote.
@@ -46,6 +56,13 @@ export default function Home() {
       // should be visible to the user whenever you handle an error
     }
   }
+
+  // let's talk about some states when you're fetching an item
+  // 1. when you're making the request tere's a loading state.
+  // 2. some error state you need to notify the user.
+  // 3. fetched successfully an the data is there.
+  // we're going to implement some of these states and return early
+
 
 
   // I want you to set the values in the jsx for this quote.
