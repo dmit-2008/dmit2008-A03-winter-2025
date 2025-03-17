@@ -39,6 +39,8 @@ export default function Home() {
     }
   }
 
+  // I want you to useEffect to load the random quote on mount
+
   // I want you to set the values in the jsx for this quote.
   return (
     <div>
