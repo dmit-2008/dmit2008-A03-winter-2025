@@ -1,6 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-export default function handler(req, res) {
+// we're adding some sleep to emphasize the loading.
+function sleep(ms) {
+  return new Promise((resolve) =>
+    setTimeout(resolve, ms));
+}
+
+export default async function handler(req, res) {
   // all of our quotes here.
   const allQuotes = [
     {
@@ -27,6 +33,12 @@ export default function handler(req, res) {
   // access a random quote
   let randomQuote = allQuotes[randomIndex]
 
+  // make the request sleep
+  await sleep(2000) // purely for the example
+
   // return a status.
   res.status(200).json(randomQuote)
+
+  // a simulated error.
+  // res.status(500).json({error: "Server error"})
 }

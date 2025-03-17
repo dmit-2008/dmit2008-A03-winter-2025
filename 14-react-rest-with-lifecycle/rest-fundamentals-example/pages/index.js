@@ -8,6 +8,8 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
 import Container from '@mui/material/Container';
+// just to add the loading.
+import CircularProgress from '@mui/material/CircularProgress';
 
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -40,19 +42,34 @@ export default function Home() {
   // I want you to create a function that is async
   // makes a request to https://stoic.tekloon.net/stoic-quote to get a random quote.
   const loadRandomQuote = async () => {
+    // we're in the process of making the
+    // request.
+    setIsLoading(true)
     const QUOTE_URL = "/api/random_quote"
     try {
       // let's essentially make a request here.
       const response = await fetch(QUOTE_URL);
       console.log(response)
+      // throw an error for anything that
+      // isn't a 2XX status or response.ok
+      if (!response.ok) {
+        throw Error("Error while making the request.")
+      }
+
       // let's parse the response from json to a js object
       const randomQuoteData = await response.json()
 
       console.log(randomQuoteData)
       setQuoteData(randomQuoteData)
-
+      // we have successfully fetched the data.
+      setIsLoading(false)
+      setError("") // just in case.
     } catch (error) {
+      // this is the state when there is a backend
+      // error.
+      setIsLoading(false)
       console.log(error)
+      setError("error while making the request")
       // should be visible to the user whenever you handle an error
     }
   }
@@ -63,7 +80,26 @@ export default function Home() {
   // 3. fetched successfully an the data is there.
   // we're going to implement some of these states and return early
 
+  // we're going return early if we are loading
+  if (isLoading) {
+    return <>
+      <Container>
+        <Box sx={{ display: 'flex' }}>
+          <CircularProgress />
+        </Box>
+      </Container>
+    </>
+  }
 
+  // handle the error state.
+  if (error !=="") {
+    return <>
+      Error: {error}
+    </>
+  }
+
+  // what we've done with everything above is make it
+  // so that we handle all states here.
 
   // I want you to set the values in the jsx for this quote.
   return (
