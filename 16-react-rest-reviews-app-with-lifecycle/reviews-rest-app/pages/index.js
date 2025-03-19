@@ -2,9 +2,8 @@ import {useState, useEffect} from 'react'
 
 import Head from 'next/head'
 
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import CircularProgress from '@mui/material/CircularProgress';
 
 // let's import our Navbar
 import Navbar from '../components/Navbar';
@@ -14,25 +13,32 @@ import ReviewsList from '../components/ReviewsList';
 
 import { getReviews } from '../utils/api/reviews';
 
+
 export default function Home() {
   // make the stateful variables
   // put them in the jsx
 
   // all of the reviews that we're going to loop through.
   const [reviews, setReviews] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   // make the request of adaptation ratings/reviews to the backend
   // set the state.
   const loadReviews = async () => {
+    // put this to loading
+    setIsLoading(true)
     try {
       // we just swap it out.
       const data = await getReviews()
       console.log(data)
       // set the reviews to what we've fetched from the backend
       setReviews(data)
+      setIsLoading(false)
     } catch (error) {
       console.log(error)
       // let's display something later on.
+      setIsLoading(false)
+      // if you want want display the error we can do it
     }
   }
 
@@ -68,23 +74,17 @@ export default function Home() {
           <ReviewForm
             loadReviews={loadReviews}
           />
-          <Box
-            sx={{
-              pt: 2,
-              pb: 2,
-            }}
-          >
-            <Button
-              variant="contained"
-              onClick={loadReviews}
-            >
-              Load All Current Reviews
-            </Button>
-          </Box>
-          <ReviewsList
-            reviews={reviews}
-            loadReviews={loadReviews}
-          />
+          { // if this is loading the show circular progress.
+          // otherwise show the reviews
+          isLoading ?
+            <CircularProgress />
+            :
+            <ReviewsList
+              reviews={reviews}
+              loadReviews={loadReviews}
+            />
+          }
+
         </Container>
       </main>
     </div>
