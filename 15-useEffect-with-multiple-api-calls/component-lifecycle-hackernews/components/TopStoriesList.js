@@ -48,12 +48,15 @@ export default function TopStoriesList() {
   // we're create
 
   return <>
-    { topStoryData.slice(0, slice*SLICE_SIZE).map((storyId)=> {
-      return <Story
-        key={storyId}
-        id={storyId}
-      />
-    })}
+    { topStoryData.slice(
+        0, slice*SLICE_SIZE
+      ).map((storyId)=> {
+        return <Story
+          key={storyId}
+          id={storyId}
+        />
+      })
+    }
 
     <Button
       onClick={loadMoreStoriesBySlice}
