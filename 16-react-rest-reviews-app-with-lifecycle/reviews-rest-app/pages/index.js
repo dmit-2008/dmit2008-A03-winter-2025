@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 import Head from 'next/head'
 
@@ -35,6 +35,23 @@ export default function Home() {
       // let's display something later on.
     }
   }
+
+  // I want you disable strict mode
+  // I want to create an effect on mount
+  // that's going to call the loadReivews
+  // I also want you to handle the loading state
+  // display either the list or circular progress
+  useEffect(()=> {
+    // remember that an effect can't be asynchronous
+    // but the function below is async, we're not using the result
+    // so we just have to ensure that it's called
+    // because it's setting the state inside of that function.
+    loadReviews()
+
+  }, []) // empty dep array and not in cleanup fucntion means on mount.
+
+
+
 
   return (
     <div>
