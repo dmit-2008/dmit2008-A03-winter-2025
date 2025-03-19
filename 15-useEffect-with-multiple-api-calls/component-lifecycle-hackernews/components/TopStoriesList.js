@@ -2,6 +2,8 @@ import {useState, useEffect} from 'react'
 
 import Button from '@mui/material/Button';
 
+import Story from "@/components/Story"
+
 export default function TopStoriesList() {
   const SLICE_SIZE = 5
 
@@ -47,9 +49,10 @@ export default function TopStoriesList() {
 
   return <>
     { topStoryData.slice(0, slice*SLICE_SIZE).map((storyId)=> {
-      return <p key={storyId}>
-        {storyId}
-      </p>
+      return <Story
+        key={storyId}
+        id={storyId}
+      />
     })}
 
     <Button
