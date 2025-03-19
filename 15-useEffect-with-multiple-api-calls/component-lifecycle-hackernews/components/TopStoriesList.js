@@ -50,10 +50,11 @@ export default function TopStoriesList() {
   return <>
     { topStoryData.slice(
         0, slice*SLICE_SIZE
-      ).map((storyId)=> {
+      ).map((storyId, index)=> {
         return <Story
           key={storyId}
           id={storyId}
+          rank={index+1}
         />
       })
     }
