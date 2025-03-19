@@ -1,0 +1,34 @@
+{
+  "reviews": [
+    {
+      "id": 1,
+      "title": "Wheel of time",
+      "comment": "Books were great but the show was just okay. ",
+      "rating": 8
+    },
+    {
+      "id": 2,
+      "title": "The Lord of the rings",
+      "comment": "A classic movie and a classic book series as well!",
+      "rating": 10
+    },
+    {
+      "title": "The man in the high castle",
+      "comment": "show was great book was average.",
+      "rating": 8,
+      "id": 5
+    },
+    {
+      "title": "Harry Potter",
+      "comment": "Voldemort was mid.",
+      "rating": 8,
+      "id": 8
+    },
+    {
+      "title": "Akira",
+      "comment": "a masterpiece",
+      "rating": 9,
+      "id": 9
+    }
+  ]
+}
