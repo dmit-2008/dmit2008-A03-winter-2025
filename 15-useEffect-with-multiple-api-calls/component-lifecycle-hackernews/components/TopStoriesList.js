@@ -24,7 +24,6 @@ export default function TopStoriesList() {
     setSlice(slice+1)
   }
 
-
   // let's make our function (request should be wrapped in
   // a try catch)
   const loadTopStories = async () => {
