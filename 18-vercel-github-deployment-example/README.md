@@ -1,5 +1,13 @@
 # Deployments
 
+# The example we did together
+
+Github Repo
+https://github.com/dgmouris/dmit2008-a03-winter-deployment-example
+
+Production site is here
+https://dmit2008-a03-winter-deployment-example.vercel.app/
+
 # PaaS vs Saas vs IaaS
 [take a look here](platform_options.excalidraw)
 [Deployment Workflow](deployment-workflow.excalidraw)
