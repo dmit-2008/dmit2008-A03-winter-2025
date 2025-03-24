@@ -2,6 +2,7 @@
 
 # PaaS vs Saas vs IaaS
 [take a look here](platform_options.excalidraw)
+[Deployment Workflow](deployment-workflow.excalidraw)
 
 # Why?
 
