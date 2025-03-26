@@ -1,3 +1,6 @@
+// we'll need these because we're going to be making an api call to the space devs api.
+import {useEffect, useState} from 'react'
+
 import Head from 'next/head'
 
 import Typography from '@mui/material/Typography';
@@ -9,6 +12,32 @@ import NavBar from '@components/NavBar';
 
 
 export default function Home() {
+  // we're going to load this with our state
+  const [isLoading,setIsLoading] = useState(true)
+  // we're going to make this undefined by default
+  // but we're going to get this information
+  // from the api.
+  const [agencies, setAgencies] = useState()
+
+
+  const loadAgencies = () => {
+    // note handle the error state we're not
+    // going to do it for this example.
+
+
+  }
+
+
+  useEffect(()=> {
+
+
+  }, []) // the on mount of the life cycle.
+
+
+
+  if (isLoading) {
+    return "Loading..."
+  }
 
   return (
     <div>
