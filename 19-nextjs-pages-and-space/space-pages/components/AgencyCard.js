@@ -2,6 +2,9 @@
 https://mui.com/material-ui/react-card/#media
 
 */
+// we're going to import the router here
+// so that you can router to a specific page.
+import { useRouter } from 'next/router';
 
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -11,7 +14,14 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 export default function AgencyCard(props) {
-    return <Card sx={{ marginTop: "8px", maxWidth: 345 }}>
+
+  const router = useRouter()
+
+  const goToAgencyPage = () => {
+    router.push(`/agency/${props.id}`)
+  }
+
+  return <Card sx={{ marginTop: "8px", maxWidth: 345 }}>
     {props.imageUrl && <CardMedia
       component="img"
       height="140"

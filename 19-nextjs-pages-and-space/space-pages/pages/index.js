@@ -80,6 +80,9 @@ export default function Home() {
               name={agency.name}
               abbreviation={agency.abbrev}
               description={agency.description}
+              // pass in the id so that we
+              // can use it in the router.
+              id={agency.id}
             />
 
           })
