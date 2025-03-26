@@ -40,7 +40,11 @@ export default function AgencyCard(props) {
       </Typography>
     </CardContent>
     <CardActions>
-      <Button size="small">Go to Agency</Button>
+      <Button
+        onClick={goToAgencyPage}
+        size="small">
+          Go to Agency
+      </Button>
     </CardActions>
   </Card>
 }
