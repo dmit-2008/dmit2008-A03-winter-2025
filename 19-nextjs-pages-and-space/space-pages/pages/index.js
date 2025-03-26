@@ -10,6 +10,8 @@ import Box from '@mui/material/Box';
 import AgencyCard from '@components/AgencyCard';
 import NavBar from '@components/NavBar';
 
+import { getAgencies } from '@utils/api/agencies';
+
 
 export default function Home() {
   // we're going to load this with our state
@@ -20,16 +22,19 @@ export default function Home() {
   const [agencies, setAgencies] = useState()
 
 
-  const loadAgencies = () => {
+  const loadAgencies = async () => {
     // note handle the error state we're not
     // going to do it for this example.
-
+    const data = await getAgencies()
+    // set the state and the loading
+    setAgencies(data)
+    setIsLoading(false)
 
   }
 
 
   useEffect(()=> {
-
+    loadAgencies()
 
   }, []) // the on mount of the life cycle.
 
@@ -38,6 +43,10 @@ export default function Home() {
   if (isLoading) {
     return "Loading..."
   }
+
+  // if we hit this point then we should
+  // see the data
+  console.log(agencies)
 
   return (
     <div>
@@ -62,6 +71,22 @@ export default function Home() {
               alignItems: 'center',
             }}
           >
+          {/* We're going to loop through
+          the agencies and render the cards */
+          agencies.results.map((agency)=> {
+            return <AgencyCard
+              key={agency.id}
+              imageUrl={agency.image?.image_url}
+              name={agency.name}
+              abbreviation={agency.abbrev}
+              description={agency.description}
+            />
+
+          })
+
+
+          }
+
           </Box>
         </Container>
 
