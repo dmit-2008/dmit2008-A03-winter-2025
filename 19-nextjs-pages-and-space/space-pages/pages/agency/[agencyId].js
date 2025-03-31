@@ -25,13 +25,31 @@ export default function Agency() {
   const {agencyId} = router.query
 
   // let's load the infomration
-  const loadAgency = () => {
+  const loadAgency = async () => {
     // into the fetch api I'm going to pass in this data
-    const data = getAgency(agencyId)
+    const data = await getAgency(agencyId)
     // let's set the states.
     setIsLoading(false)
     setAgency(data)
   }
+
+  useEffect(()=> {
+    // is you need to guard against the router
+    // not being ready or an undefined agencyId
+    // option 1: checking if the router is ready.
+    // if (!router.isReady) {
+    //   return
+    // }
+    // option 2: check if the agencyId is not defined.
+
+    if (!agencyId) {
+      return // just exit early
+    }
+    // the agencyId is defined so load the data.
+    loadAgency()
+  }, [agencyId])
+
+  console.log(agency)
 
   // Challenge:
   // I want you to load the agency data, handle all of the loading states.
@@ -40,6 +58,12 @@ export default function Agency() {
   // If it is I want you to load this data
   // I want some JSX (you can grab it from the about page.)
   // that will render the agency name.
+
+  // we're going to create the loading state
+  // some data for the agency.
+  if (isLoading) {
+    return `Loading Agency ${agencyId}...`
+  }
 
   return <h1>
     Agency: {agencyId}
