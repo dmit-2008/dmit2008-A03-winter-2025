@@ -1,3 +1,6 @@
+// we're going to import Link from next.js
+import Link from 'next/link';
+
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography'
@@ -11,10 +14,15 @@ export default function NavBar(props) {
   return <AppBar position="static">
     <Toolbar>
       <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-        Space Agency App
+        {/* We're going to use the links with the page. */}
+        <Link href="/">
+          Space Agency App
+        </Link>
       </Typography>
       <Typography variant="h6" component="div" >
-        About
+        <Link href="/about">
+          About
+        </Link>
       </Typography>
     </Toolbar>
   </AppBar>
