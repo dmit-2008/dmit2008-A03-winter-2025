@@ -8,6 +8,11 @@ import {useState, useEffect} from 'react'
 // the useRouter hook
 import { useRouter } from "next/router";
 
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+
+import NavBar from '@components/NavBar';
+
 import { getAgency } from '@utils/api/agencies';
 
 export default function Agency() {
@@ -65,7 +70,19 @@ export default function Agency() {
     return `Loading Agency ${agencyId}...`
   }
 
-  return <h1>
-    Agency: {agencyId}
-  </h1>
+  // remember the agency should be loaded correctly.
+  return <div>
+    <NavBar />
+
+    <Container sx={{paddingTop:2}} component="main" maxWidth="xs">
+
+      <Typography variant="h3">
+        {agency.name} ({agency.abbrev})
+      </Typography>
+      <Typography variant="p">
+        {agency.description}
+      </Typography>
+    </Container>
+
+  </div>
 }
