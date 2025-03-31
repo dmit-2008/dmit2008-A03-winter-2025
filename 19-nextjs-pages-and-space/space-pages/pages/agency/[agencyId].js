@@ -82,6 +82,20 @@ export default function Agency() {
       <Typography variant="p">
         {agency.description}
       </Typography>
+      {/*
+      Challenge:
+      I want you folks to loop through the
+      spacecraft_list on the "agency"
+      use the "SimpleDetail" with the following props
+      I want you to pass down a callback function
+      that will route to /spacecraft/idhere
+      I want you to pass down the title.
+
+      to create a route that will /spacecraft/sdfasdf
+      and read the id in it.
+      */}
+
+
     </Container>
 
   </div>
