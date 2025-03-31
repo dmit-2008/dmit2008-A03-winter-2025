@@ -12,7 +12,6 @@ export default function Agency() {
   // when you map to this page.
   const {agencyId} = router.query
 
-
   return <h1>
     Agency: {agencyId}
   </h1>
