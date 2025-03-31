@@ -76,6 +76,8 @@ export default function Home() {
           agencies.results.map((agency)=> {
             return <AgencyCard
               key={agency.id}
+              // the ? after image does a quick check
+              // if it exists.
               imageUrl={agency.image?.image_url}
               name={agency.name}
               abbreviation={agency.abbrev}
@@ -84,7 +86,6 @@ export default function Home() {
               // can use it in the router.
               id={agency.id}
             />
-
           })
 
 
