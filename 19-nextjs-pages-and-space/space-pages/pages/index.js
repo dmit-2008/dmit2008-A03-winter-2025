@@ -36,13 +36,43 @@ export default function Home() {
   const loadAgencies = async () => {
     // note handle the error state we're not
     // going to do it for this example.
-    const data = await getAgencies({})
+    const data = await getAgencies({
+      search: searchQuery
+      // this is going to passin the current state to
+      // the backend
+    })
     // set the state and the loading
     setAgencies(data)
     setIsLoading(false)
-
   }
 
+  // this function is going to do two things
+  // update the state of search (same as always)
+  // the second is that it's going to update the
+  // query parameters without reloading the page.
+  const updateSearch = (event) => {
+    setSearchQuery(event.target.value)
+
+    // using router replace to replace query params.
+    router.replace({
+      pathname: router.pathname,
+      // update all query params and keep other ones
+      // if present
+      query: {
+        ...router.query,
+        q: event.target.value
+      }
+    },
+    undefined, // we're staying on the same page we don't need to replace with other path,
+    {shallow: true} // it's not going to perform a full page
+    // refresh
+    )
+  }
+  // notes on search
+  // 1. debouncing is a smart idea: it doesn't trigger evyer
+  // keystroke but will trigger every few milliseconds
+  // 2. normally rule of thumbs start search after three 3 chars
+  console.log(router)
   // we're going to create an effect that
   // is only going to listen to the router.isReady
   // property and we're going to take a look at the
@@ -63,10 +93,19 @@ export default function Home() {
   // above will switch from false to true once the
   // query params are all loaded.
 
+
+  // we're going to change this effect so that
+  // it listens to the searchQuery and
   useEffect(()=> {
+    if (!router.isReady) {
+      return
+    }
+
     loadAgencies()
 
-  }, []) // the on mount of the life cycle.
+  }, [searchQuery])
+  // any change in searchQuery is going to fire
+  // the load agencies
 
 
 
@@ -106,6 +145,9 @@ export default function Home() {
               fullWidth
 
               value={searchQuery}
+              // the update is going to update queryparams
+              // and the state
+              onChange={updateSearch}
             />
 
             {/* We're going to loop through
