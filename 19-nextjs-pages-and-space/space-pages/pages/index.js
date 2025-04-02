@@ -22,6 +22,9 @@ export default function Home() {
   const router = useRouter()
   // we'll need this with the query
 
+  // let's create a stateful value that will hold the search
+  const [searchQuery, setSearchQuery] = useState()
+
   // we're going to load this with our state
   const [isLoading,setIsLoading] = useState(true)
   // we're going to make this undefined by default
@@ -51,6 +54,10 @@ export default function Home() {
     }
     // this below will be the query param
     console.log(`q is: ${router.query.q}`)
+    // we're going to set this to the state
+    // if it's undefined here we're going to
+    // set the state to an empty string
+    setSearchQuery(router.query.q || "")
 
   },[router.isReady])
   // above will switch from false to true once the
@@ -97,6 +104,8 @@ export default function Home() {
             <TextField
               label="Search"
               fullWidth
+
+              value={searchQuery}
             />
 
             {/* We're going to loop through
