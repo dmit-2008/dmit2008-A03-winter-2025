@@ -20,7 +20,9 @@ export default function SimpleDetailsCard(props) {
     </CardContent>
     {props.buttonCallback &&
       <CardActions>
-        <Button size="small" onClick={props.buttonCallback}>{props.buttonName}</Button>
+        <Button size="small" onClick={props.buttonCallback}>
+          {props.buttonName}
+        </Button>
       </CardActions>
     }
   </Card>

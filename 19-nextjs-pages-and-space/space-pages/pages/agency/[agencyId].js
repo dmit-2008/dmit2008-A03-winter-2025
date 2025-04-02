@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
 import NavBar from '@components/NavBar';
+import SimpleDetailsCard from '@components/SimpleDetailsCard';
 
 import { getAgency } from '@utils/api/agencies';
 
@@ -94,7 +95,18 @@ export default function Agency() {
       to create a route that will /spacecraft/sdfasdf
       and read the id in it.
       */}
-
+      {agency.spacecraft_list.map((spacecraft)=> {
+        // we have a generic card we're going to
+        // pass in the title as spacraft.name
+        return <SimpleDetailsCard
+          description={spacecraft.name}
+          buttonName="Go to Spacecraft"
+          // the id is going to be the spacecraft.id
+          buttonCallback={()=> {
+            router.push(`/spacecraft/${spacecraft.id}`)
+          }}
+        />
+      })}
 
     </Container>
 

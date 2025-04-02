@@ -3,9 +3,10 @@ import {useEffect, useState} from 'react'
 
 import Head from 'next/head'
 
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
 
 import AgencyCard from '@components/AgencyCard';
 import NavBar from '@components/NavBar';
@@ -71,25 +72,27 @@ export default function Home() {
               alignItems: 'center',
             }}
           >
-          {/* We're going to loop through
-          the agencies and render the cards */
-          agencies.results.map((agency)=> {
-            return <AgencyCard
-              key={agency.id}
-              // the ? after image does a quick check
-              // if it exists.
-              imageUrl={agency.image?.image_url}
-              name={agency.name}
-              abbreviation={agency.abbrev}
-              description={agency.description}
-              // pass in the id so that we
-              // can use it in the router.
-              id={agency.id}
+            <TextField
+              label="Search"
+              fullWidth
             />
-          })
 
-
-          }
+            {/* We're going to loop through
+            the agencies and render the cards */
+            agencies.results.map((agency)=> {
+              return <AgencyCard
+                key={agency.id}
+                // the ? after image does a quick check
+                // if it exists.
+                imageUrl={agency.image?.image_url}
+                name={agency.name}
+                abbreviation={agency.abbrev}
+                description={agency.description}
+                // pass in the id so that we
+                // can use it in the router.
+                id={agency.id}
+              />
+            })}
 
           </Box>
         </Container>
