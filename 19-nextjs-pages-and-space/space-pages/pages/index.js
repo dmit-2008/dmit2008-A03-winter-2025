@@ -1,6 +1,9 @@
 // we'll need these because we're going to be making an api call to the space devs api.
 import {useEffect, useState} from 'react'
 
+// we'll import the router here.
+import { useRouter } from 'next/router';
+
 import Head from 'next/head'
 
 import Box from '@mui/material/Box';
@@ -15,6 +18,10 @@ import { getAgencies } from '@utils/api/agencies';
 
 
 export default function Home() {
+  // we're going to define the router here
+  const router = useRouter()
+  // we'll need this with the query
+
   // we're going to load this with our state
   const [isLoading,setIsLoading] = useState(true)
   // we're going to make this undefined by default
@@ -26,12 +33,18 @@ export default function Home() {
   const loadAgencies = async () => {
     // note handle the error state we're not
     // going to do it for this example.
-    const data = await getAgencies()
+    const data = await getAgencies({})
     // set the state and the loading
     setAgencies(data)
     setIsLoading(false)
 
   }
+
+  // we're going to create an effect that
+  // is only going to listen to the router.isReady
+  // property and we're going to take a look at the
+  // query params
+
 
 
   useEffect(()=> {
