@@ -44,8 +44,17 @@ export default function Home() {
   // is only going to listen to the router.isReady
   // property and we're going to take a look at the
   // query params
+  useEffect(()=> {
+    // guard if the router isn't ready
+    if (!router.isReady) {
+      return
+    }
+    // this below will be the query param
+    console.log(`q is: ${router.query.q}`)
 
-
+  },[router.isReady])
+  // above will switch from false to true once the
+  // query params are all loaded.
 
   useEffect(()=> {
     loadAgencies()
