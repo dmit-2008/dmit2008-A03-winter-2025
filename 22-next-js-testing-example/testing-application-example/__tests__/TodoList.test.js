@@ -9,6 +9,10 @@ import '@testing-library/jest-dom'
 // the html itself. We'll need both of these
 // to test next.js apps.
 
+import TodoList from '../components/TodoList'
+// we're going to need the component that we're
+// rendering!
+
 
 // let's do a fundamental test
 // we're going to test here that 2 -1 is equal to one
@@ -29,3 +33,6 @@ test("test that 2 - 1 is equal to 1", () => {
   expect(value).not.toEqual(10) // pass as well.
   expect(value).toEqual(EXPECTED_VALUE)
 })
+
+// to understand how these piece work
+// we're going to check if a title exists
