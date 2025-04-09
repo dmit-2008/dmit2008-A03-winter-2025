@@ -1,3 +1,13 @@
+import {render, screen} from '@testing-library/react'
+// render above is going to be used to "render"
+// the component inside of our testing environment
+// screen is going to allow you get specific items
+// inside of your component
+import '@testing-library/jest-dom'
+// this is above is going to add to the matchers
+// so that we can test things in the jsx and
+// the html itself. We'll need both of these
+// to test next.js apps.
 
 
 // let's do a fundamental test
