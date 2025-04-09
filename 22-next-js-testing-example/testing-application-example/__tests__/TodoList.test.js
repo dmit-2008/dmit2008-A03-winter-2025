@@ -54,6 +54,8 @@ it("tests that title is rendered on the page", ()=> {
   // with @testing-library/jest-dom
   // refer to here https://github.com/testing-library/jest-dom
   // let's make this matcher fail first
-  titleElement.not.toBeInTheDocument()
+  // expect(titleElement).not.toBeInTheDocument()
+  // let's make it pass now
+  expect(titleElement).toBeInTheDocument()
 
 })
