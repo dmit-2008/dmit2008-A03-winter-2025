@@ -36,3 +36,24 @@ test("test that 2 - 1 is equal to 1", () => {
 
 // to understand how these piece work
 // we're going to check if a title exists
+// "it" is the same test let's use it!
+// take a look here: https://testing-library.com/docs/react-testing-library/example-intro
+it("tests that title is rendered on the page", ()=> {
+  // render the component so that we can access
+  // the parts inside of it.
+  render(<TodoList/>)
+
+  // with screen you can access items/dom/any element
+  // inside of the todolist above with screen queries
+  // reference here https://testing-library.com/docs/queries/about/#screen
+  // to learn more about screen.
+  // let's get the title by text
+  const titleElement = screen.getByText("Our Todo List")
+
+  // there's a whole load of matchers that are added
+  // with @testing-library/jest-dom
+  // refer to here https://github.com/testing-library/jest-dom
+  // let's make this matcher fail first
+  titleElement.not.toBeInTheDocument()
+
+})
