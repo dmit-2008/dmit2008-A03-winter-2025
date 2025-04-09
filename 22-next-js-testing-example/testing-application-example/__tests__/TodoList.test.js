@@ -59,3 +59,13 @@ it("tests that title is rendered on the page", ()=> {
   expect(titleElement).toBeInTheDocument()
 
 })
+
+it("todo item should add to the list on click", ()=> {
+  // render the component
+  // get the input button and list element from TodoList
+  // "simulate" typing in the list
+  // check that the input has the text
+  // click the button
+  // check that the input is empty
+  // check that the list has the string inside.
+})
