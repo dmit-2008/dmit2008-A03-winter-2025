@@ -45,6 +45,7 @@ export default function TodoList () {
           label="New Todo"
           variant="standard"
           sx={{width: '100%'}}
+          // this is firing the change event
           onChange={onTodoTextChange}
           value={todoText}
         />

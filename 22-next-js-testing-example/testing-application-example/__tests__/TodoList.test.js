@@ -1,4 +1,9 @@
-import {render, screen} from '@testing-library/react'
+// we're going to use a few things from react testing library
+// so you can cimulate events.
+// fireEvent for events that solely change state
+// we're going to use act for things that are going to
+// make multiple state changes.
+import {render, fireEvent, act, screen} from '@testing-library/react'
 // render above is going to be used to "render"
 // the component inside of our testing environment
 // screen is going to allow you get specific items
@@ -63,12 +68,34 @@ it("todo item should add to the list on click", ()=> {
   // render the component
   render(<TodoList />)
   // get the input button and list element from TodoList
-  // docs reference on screen
+  // docs reference on screen https://testing-library.com/docs/queries/about/#screen
   const button = screen.getByText("Add Todo")
   const inputElement = screen.getByLabelText("New Todo")
+  // docs reference on getByTestId: https://testing-library.com/docs/queries/bytestid
+  const listElement = screen.getByTestId('todo-item-list')
+  // note go take a look at the "data-testid" in the TodoList component
+
+  const EXPECTED_VALUE = "Our first real test"
 
   // "simulate" typing in the list
+  // taking a look here: https://testing-library.com/docs/react-testing-library/example-intro
+  fireEvent.change(
+    inputElement, // the element to fire the event on.
+    { // this is essentially just a dummy event object
+      "target": {
+        "value": EXPECTED_VALUE
+      }
+    }
+  )
+
   // check that the input has the text
+  // first we're going to make the the tests fail
+  //  expect(inputElement.value).not.toBe(EXPECTED_VALUE)
+  // let's make the tests pass
+  expect(inputElement.value).toBe(EXPECTED_VALUE)
+
+
+
   // click the button
   // check that the input is empty
   // check that the list has the string inside.
