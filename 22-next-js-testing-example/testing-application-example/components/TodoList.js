@@ -59,6 +59,9 @@ export default function TodoList () {
 
 
       <List
+        // this prop does nothing except
+        // allow us to access this for the
+        // tests.
         data-testid='todo-item-list'
         sx={{width: `100%`}}>
         {allTodos.map((todoItem, index)=> {

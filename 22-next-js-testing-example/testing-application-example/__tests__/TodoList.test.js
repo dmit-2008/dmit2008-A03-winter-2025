@@ -57,12 +57,16 @@ it("tests that title is rendered on the page", ()=> {
   // expect(titleElement).not.toBeInTheDocument()
   // let's make it pass now
   expect(titleElement).toBeInTheDocument()
-
 })
 
 it("todo item should add to the list on click", ()=> {
   // render the component
+  render(<TodoList />)
   // get the input button and list element from TodoList
+  // docs reference on screen
+  const button = screen.getByText("Add Todo")
+  const inputElement = screen.getByLabelText("New Todo")
+
   // "simulate" typing in the list
   // check that the input has the text
   // click the button
