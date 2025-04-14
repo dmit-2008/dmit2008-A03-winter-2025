@@ -20,4 +20,25 @@
 // browser fetch consistent.
 import 'isomorphic-fetch'
 
-// we're also going to
+// we're also going to import react testing
+// library to render our components
+import { render, screen, act} from "@testing-library/react"
+
+// import the matchers
+import '@testing-library/jest-dom'
+
+// we're going to need a few things from MSW to set up a dummy server
+// and also mock the endpoints that our application (for this is just
+// one) docs: https://mswjs.io/docs/getting-started#step-2-describe
+import { http, HttpResponse } from 'msw'
+// the above is going to mock out the requests
+
+// you going to need the functions to run the server
+// docs: https://mswjs.io/docs/getting-started#step-3-integrate
+import { setupServer } from 'msw/node'
+
+// import our component to render the page.
+import Home from '../pages'
+
+import { BASE_URL } from '../utils/api/base'
+
