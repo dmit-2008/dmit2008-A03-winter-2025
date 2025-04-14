@@ -94,9 +94,19 @@ it("todo item should add to the list on click", ()=> {
   // let's make the tests pass
   expect(inputElement.value).toBe(EXPECTED_VALUE)
 
-
-
   // click the button
+  // act normally needs to be called when you're doing
+  // more complex state changes
+  act(()=> {
+    button.click() // you can also fire an event like this
+  })
   // check that the input is empty
+  // let's make the test fail first.
+  // below is going to fail because the value is reset (line 30 TodoList)
+  // expect(inputElement.value).toBe(EXPECTED_VALUE)
+  // let's make the test pass
+  expect(inputElement.value).toBe("")
+
   // check that the list has the string inside.
+  expect(listElement).toHaveTextContent(EXPECTED_VALUE)
 })
