@@ -94,7 +94,17 @@ it("should load a quote on rendering of the component", async ()=> {
   })
   // refer to screen: https://testing-library.com/docs/queries/about/#screen
   // if you want more about different types of queries
+  // let's get the elements
+  let quoteElement = screen.getByTestId("quote")
+  let authorElement = screen.getByTestId("author")
 
+  // we're going to check to see if these contain the
+  // string of the api.
+  // make the tests fail first
+  // expect(quoteElement).not.toHaveTextContent(QUOTE)
+  // let's make them pass
+  expect(quoteElement).toHaveTextContent(QUOTE)
+  expect(authorElement).toHaveTextContent(AUTHOR)
 })
 
 
