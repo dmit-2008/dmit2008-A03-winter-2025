@@ -42,3 +42,37 @@ import Home from '../pages'
 
 import { BASE_URL } from '../utils/api/base'
 
+// let's quotes
+const QUOTE = "To be or not to be"
+const AUTHOR = "Billy Shakes"
+
+// we're going to set up our mock endpoints in the server
+// taking a look at `utils/api/quotes` we have one request
+// that we'll be mocking the backend.
+// set up a server
+const server = setupServer(
+  // this is going to have 1 to many arguments
+  // that will be the server endpoints that you create
+  http.get(
+    `${BASE_URL}/api/random_quote`, // path mocked
+    () => { // response handler for our dummy server.
+      // this is the response
+      return HttpResponse.json({
+        author: AUTHOR,
+        quote: QUOTE
+      })
+    }
+  )
+)
+
+// before all the tests we're going to open server
+// reference: https://jestjs.io/docs/setup-teardown
+
+// after all the tests we're going to close the server
+
+
+// we're going to perform two tests.
+
+// 1. when I open the page a quote is loaded.
+
+// 2. when the button is clicked a new quote is loaded.
