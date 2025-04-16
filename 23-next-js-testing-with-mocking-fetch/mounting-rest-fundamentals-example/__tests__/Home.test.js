@@ -42,7 +42,7 @@ import Home from '../pages/index'
 
 import { BASE_URL } from '../utils/api/base'
 
-// let's quotes
+// let's define some quotes to be used
 const QUOTE = "To be or not to be"
 const AUTHOR = "Billy Shakes"
 
@@ -69,10 +69,33 @@ const server = setupServer(
 // reference: https://jestjs.io/docs/setup-teardown
 
 // after all the tests we're going to close the server
+beforeAll(()=> {
+  // I'm going to open my server so that my mock server
+  // can accept connections
+  server.listen()
+  // docs: https://mswjs.io/docs/getting-started#step-3-integrate
+})
+
+// after all of the the tests we're going to close the server
+afterAll(()=> {
+  server.close()
+})
 
 
 // we're going to perform two tests.
 
 // 1. when I open the page a quote is loaded.
+it("should load a quote on rendering of the component", async ()=> {
+  // our todo is doing a complex state change
+  await act(() => {
+    // this way of loading will load the api data and
+    // the component and wait for the response.
+    render(<Home />)
+  })
+  // refer to screen: https://testing-library.com/docs/queries/about/#screen
+  // if you want more about different types of queries
+
+})
+
 
 // 2. when the button is clicked a new quote is loaded.
