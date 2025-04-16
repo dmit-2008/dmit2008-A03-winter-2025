@@ -130,8 +130,8 @@ it("should load a new quote on button click", async ()=> {
         // this is the response
         return HttpResponse.json({
           // what changes here is this new response.
-          author: NEW_QUOTE,
-          quote: NEW_AUTHOR
+          author: NEW_AUTHOR,
+          quote: NEW_QUOTE
         })
       }
     )
@@ -143,6 +143,15 @@ it("should load a new quote on button click", async ()=> {
     button.click()
   })
   // 5. make the assertions to see what our new component looks like
+  let quoteElement = screen.getByTestId("quote")
+  let authorElement = screen.getByTestId("author")
+
   // we want to make our tests fail first
+  // expect(quoteElement).toHaveTextContent(QUOTE)
+  // expect(authorElement).toHaveTextContent(AUTHOR)
+  // the above fails
+  // we make them pass
+  expect(quoteElement).toHaveTextContent(NEW_QUOTE)
+  expect(authorElement).toHaveTextContent(NEW_AUTHOR)
 
 })
