@@ -109,3 +109,16 @@ it("should load a quote on rendering of the component", async ()=> {
 
 
 // 2. when the button is clicked a new quote is loaded.
+it("should load a new quote on button click", ()=> {
+  // steps we're going to take here is
+  // 1. render the component
+  await act(()=> {
+    render(<Home />)
+  })
+  // 2. swap out the response of the mock
+  //    so that after we render our first quote
+  //    we change our response
+  // 3. get the button
+  // 4. click the button
+  // 5. make the assertions to see what our new component looks like
+})
