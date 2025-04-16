@@ -38,7 +38,7 @@ import { http, HttpResponse } from 'msw'
 import { setupServer } from 'msw/node'
 
 // import our component to render the page.
-import Home from '../pages'
+import Home from '../pages/index'
 
 import { BASE_URL } from '../utils/api/base'
 
