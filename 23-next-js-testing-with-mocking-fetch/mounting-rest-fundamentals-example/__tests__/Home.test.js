@@ -109,16 +109,40 @@ it("should load a quote on rendering of the component", async ()=> {
 
 
 // 2. when the button is clicked a new quote is loaded.
-it("should load a new quote on button click", ()=> {
+it("should load a new quote on button click", async ()=> {
   // steps we're going to take here is
   // 1. render the component
   await act(()=> {
     render(<Home />)
   })
+  // new quote
+  const NEW_QUOTE = "You miss all the shots you don't take"
+  const NEW_AUTHOR = "Mark Messier"
+
   // 2. swap out the response of the mock
   //    so that after we render our first quote
   //    we change our response
+  // we're going to do this with use https://mswjs.io/docs/api/setup-server/use/
+  server.use(
+    http.get(
+      `${BASE_URL}/api/random_quote`, // path mocked
+      () => { // response handler for our dummy server.
+        // this is the response
+        return HttpResponse.json({
+          // what changes here is this new response.
+          author: NEW_QUOTE,
+          quote: NEW_AUTHOR
+        })
+      }
+    )
+  )
   // 3. get the button
+  const button = screen.getByTestId("new-quote-button")
   // 4. click the button
+  await act(()=> {
+    button.click()
+  })
   // 5. make the assertions to see what our new component looks like
+  // we want to make our tests fail first
+
 })
