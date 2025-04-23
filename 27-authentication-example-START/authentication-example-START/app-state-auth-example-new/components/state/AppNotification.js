@@ -11,6 +11,8 @@ export const AppNotificationContext = createContext({})
 //    because we only need to import one thing rather than
 //    useContext and the context itself.
 export function useNotification() {
+  // so you can call your own hooks inside of your custom hook
+  // useEffect, useState, useRouter.
   const context = useContext(AppNotificationContext)
   if (!context) {
     throw new Error(`useCount must be used within a AppNotification`)
