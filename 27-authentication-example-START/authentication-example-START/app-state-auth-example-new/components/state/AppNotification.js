@@ -3,6 +3,7 @@ import { useState, useContext, createContext  } from 'react'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
+
 export const AppNotificationContext = createContext({})
 
 export function useNotification() {
@@ -13,6 +14,8 @@ export function useNotification() {
   return context
 }
 
+// 1. create a component that will wrap the entire application
+
 export default function AppNotification(props) {
     const [open, setOpen] = useState(false);
     const [text, setText] = useState('')
@@ -21,7 +24,7 @@ export default function AppNotification(props) {
     const handleClose = (event, reason) => {
       console.log(event)
       console.log(reason)
-  
+
       setOpen(false);
     };
 
@@ -36,7 +39,7 @@ export default function AppNotification(props) {
       {props.children}
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <MuiAlert
-          elevation={6} variant="filled"  
+          elevation={6} variant="filled"
           onClose={handleClose} severity={severity} sx={{ width: '100%' }}
         >
           {text}
